@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".APesan">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:hint="Silahkan Piih Jenis Kain"/>
+
+            <TextView
+                android:id="@+id/edt_name_baju"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama"
+                android:inputType="textCapSentences"
+                android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/edt_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:inputType="textCapSentences"
+            android:maxLines="1" />
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:visibility="invisible"
+            app:layout_anchor="@id/rv_heros"
+            app:layout_anchorGravity="center" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_heros"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:listitem="@layout/card_item_kain" />
+
+    </LinearLayout>
+</ScrollView>

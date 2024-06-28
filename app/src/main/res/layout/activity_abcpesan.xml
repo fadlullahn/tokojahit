@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".ABCPesan">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:hint="Silahkan Lengkapi Ukuran Pakaian"/>
+
+        <TextView
+            android:id="@+id/edt_name_baju"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Baju"
+            android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/edt_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price"
+            android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/edt_name_kain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Kain"
+            android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/edt_name_desain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nama Desain"
+            android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:textSize="18dp"
+            android:hint="1) Badan Bagian Atas"
+            android:maxLines="1" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_lingkar_badan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lingkar Badan"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_lingkar_pinggang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lingkar Pinggang"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_panjang_dada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Panjang Dada"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/et_lebar_dada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lebar Dada"
+            android:textSize="15sp"
+            android:inputType="text"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/et_panjang_punggung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Panjang Punggung"
+            android:textSize="15sp"
+            android:inputType="text"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/et_lebar_punggung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lebar Punggung"
+            android:textSize="15sp"
+            android:inputType="text"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/et_lebar_bahu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lebar Bahu"
+            android:textSize="15sp"
+            android:inputType="text"
+            />
+         </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/et_lingkar_leher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lingkar Leher"
+            android:textSize="15sp"
+            android:inputType="text"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/et_tinggi_dada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tinggi Dada"
+            android:textSize="15sp"
+            android:inputType="text"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <EditText
+            android:id="@+id/et_jarak_dada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Jarak Dada"
+            android:textSize="15sp"
+            android:inputType="text"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:hint="2) Bagian Lengan"
+            android:maxLines="1" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_lingkar_pangkal_lengan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lingkar Pangkal Lengan"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_panjang_lengan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Panjang Lengan"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_lingkar_siku"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lingkar Siku"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_lingkar_pergelangan_tangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lingkar Pergelangan Tangan"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_lingkar_kerung_lengan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lingkar Kerung Lengan"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            android:hint="3) Ukuran Pada Rok"
+            android:maxLines="1" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_lingkar_panggul_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lingkar Panggul 1"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_lingkar_panggul_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lingkar Panggul 2"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <EditText
+                android:id="@+id/et_lingkar_rok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lingkar Rok"
+                android:textSize="15sp"
+                android:inputType="text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".KainDataActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:text="Daftar Kain">
+    </TextView>
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:visibility="invisible"
+        app:layout_anchor="@id/rv_heros"
+        app:layout_anchorGravity="center" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_heros"
+        android:layout_marginTop="34dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/card_item_kain" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:foregroundGravity="bottom"
+        app:fabSize="normal"
+        app:layout_anchor="@id/rv_heros"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/ic_add" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

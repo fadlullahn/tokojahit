@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfilActivity">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profil Pemilik"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/tvNamaPemilikLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Pemilik: Samsul"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/tvTempatTanggalLahirLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tempat, Tanggal Lahir: Parepare 08 Maret 2002"
+        app:layout_constraintTop_toBottomOf="@+id/tvNamaPemilikLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/tvAlamatDiriLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alamat Diri: BTN Pepabri"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempatTanggalLahirLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/tvNomorHPLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nomor HP: 085278954"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlamatDiriLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/tvAlamatTokoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alamat Toko: Jalan Bambu Runcing Nomor 5"
+        app:layout_constraintTop_toBottomOf="@+id/tvNomorHPLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/tvTahunBerdiriLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tahun Berdiri Toko: 2024"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlamatTokoLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <TextView
+        android:id="@+id/tvDeskripsiTokoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi Singkat Toko: The Best of the best"
+        app:layout_constraintTop_toBottomOf="@+id/tvTahunBerdiriLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

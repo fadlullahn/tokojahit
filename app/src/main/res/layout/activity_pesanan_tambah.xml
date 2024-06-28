@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".PesananTambahActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:hint="Detail Pemesanan"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nama Pakaian :"
+                android:paddingEnd="2dp"
+                android:gravity="start|center_vertical" />
+            <TextView
+                android:id="@+id/tv_name_baju"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Harga Pakaian :"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Kain :"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_name_kain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desain Pakaian :"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_name_desain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:hint="Ukuran Pakaian"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lingkar Badan:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lingkar_badan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lingkar Pinggang:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lingkar_pinggang"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Panjang Dada:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_panjang_dada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lebar Dada:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lebar_dada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Panjang Punggung:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_panjang_punggung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lebar Punggung:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lebar_punggung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lebar Bahu:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lebar_bahu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lingkar Leher:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lingkar_leher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tinggi Dada:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_tinggi_dada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jarak Dada:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_jarak_dada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lingkar Pangkal Lengan:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lingkar_pangkal_lengan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Panjang Lengan:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_panjang_lengan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lingkar Siku:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lingkar_siku"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lingkar Pergelangan Tangan:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lingkar_pergelangan_tangan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lingkar Kerung Lengan:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lingkar_kerung_lengan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lingkar Panggul 1:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lingkar_panggul_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lingkar Panggul 2:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lingkar_panggul_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lingkar Rok:"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_lingkar_rok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="15dp"
+            android:textStyle="italic"
+            android:text="Silahkan Melakukan Pembayaran Pada Rekening Berikut :"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BCA : 123456789"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DANA : 123456789"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                android:id="@+id/imgHolder"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_galery"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Bukti Pembayaran" />
+        <Button
+            android:id="@+id/btn_submit"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pesan" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+            <EditText
+                android:id="@+id/edt_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Produk"
+                android:inputType="textCapSentences"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+            <EditText
+                android:id="@+id/edt_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Harga"
+                android:inputType="textCapSentences"
+                android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+            <EditText
+                android:id="@+id/et_lingkar_badan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lingkar_pinggang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_panjang_dada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lebar_dada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_panjang_punggung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lebar_punggung"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lebar_bahu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lingkar_leher"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_tinggi_dada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_jarak_dada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lingkar_pangkal_lengan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_panjang_lengan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lingkar_siku"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lingkar_pergelangan_tangan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lingkar_kerung_lengan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lingkar_panggul_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lingkar_panggul_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+            <EditText
+                android:id="@+id/et_lingkar_rok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:inputType="textCapSentences" />
+    </LinearLayout>
+</ScrollView>
