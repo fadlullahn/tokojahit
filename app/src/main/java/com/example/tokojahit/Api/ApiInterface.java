@@ -83,11 +83,11 @@ public interface ApiInterface {
     );
 
 
-    @GET("kain")
+    @GET("kain.php")
     Call<GetKain> getKain();
 
     @Multipart
-    @POST("kain")
+    @POST("kain.php")
     Call<PostPutDelKain> postKain(@Part MultipartBody.Part image,
                                      @Part("name") RequestBody name,
                                      @Part("price") RequestBody price,
@@ -95,7 +95,7 @@ public interface ApiInterface {
                                      @Part("flag") RequestBody flag);
 
     @Multipart
-    @POST("kain")
+    @POST("kain.php")
     Call<PostPutDelKain> postUpdateKain(@Part MultipartBody.Part image,
                                            @Part("id") RequestBody id,
                                            @Part("name") RequestBody name,
@@ -104,7 +104,7 @@ public interface ApiInterface {
                                            @Part("flag") RequestBody flag);
 
     @FormUrlEncoded
-    @HTTP(method = "DELETE", path = "kain", hasBody = true)
+    @HTTP(method = "DELETE", path = "kain.php", hasBody = true)
     Call<PostPutDelKain> deleteKain(@Field("id") String id);
 
 
@@ -112,11 +112,11 @@ public interface ApiInterface {
 
 
 
-    @GET("desain")
+    @GET("desain.php")
     Call<GetDesain> getDesain();
 
     @Multipart
-    @POST("desain")
+    @POST("desain.php")
     Call<PostPutDelDesain> postDesain(@Part MultipartBody.Part image,
                                     @Part("name") RequestBody name,
                                     @Part("price") RequestBody price,
@@ -124,7 +124,7 @@ public interface ApiInterface {
                                     @Part("flag") RequestBody flag);
 
     @Multipart
-    @POST("desain")
+    @POST("desain.php")
     Call<PostPutDelDesain> postUpdateDesain(@Part MultipartBody.Part image,
                                         @Part("id") RequestBody id,
                                         @Part("name") RequestBody name,
@@ -133,7 +133,7 @@ public interface ApiInterface {
                                         @Part("flag") RequestBody flag);
 
     @FormUrlEncoded
-    @HTTP(method = "DELETE", path = "desain", hasBody = true)
+    @HTTP(method = "DELETE", path = "desain.php", hasBody = true)
     Call<PostPutDelDesain> deleteDesain(@Field("id") String id);
 
 
@@ -141,11 +141,11 @@ public interface ApiInterface {
 
 
 
-    @GET("baju")
+    @GET("baju.php")
     Call<GetBaju> getBaju();
 
     @Multipart
-    @POST("baju")
+    @POST("baju.php")
     Call<PostPutDelBaju> postBaju(@Part MultipartBody.Part image,
                                     @Part("name") RequestBody name,
                                     @Part("price") RequestBody price,
@@ -153,7 +153,7 @@ public interface ApiInterface {
                                     @Part("flag") RequestBody flag);
 
     @Multipart
-    @POST("baju")
+    @POST("baju.php")
     Call<PostPutDelBaju> postUpdateBaju(@Part MultipartBody.Part image,
                                             @Part("id") RequestBody id,
                                             @Part("name") RequestBody name,
@@ -162,7 +162,7 @@ public interface ApiInterface {
                                             @Part("flag") RequestBody flag);
 
     @FormUrlEncoded
-    @HTTP(method = "DELETE", path = "baju", hasBody = true)
+    @HTTP(method = "DELETE", path = "baju.php", hasBody = true)
     Call<PostPutDelBaju> deleteBaju(@Field("id") String id);
 
 
