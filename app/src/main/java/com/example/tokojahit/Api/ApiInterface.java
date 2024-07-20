@@ -169,11 +169,11 @@ public interface ApiInterface {
 
 
 
-    @GET("pesanan")
+    @GET("pesanan.php")
     Call<GetPesanan> getPesanan();
 
     @Multipart
-    @POST("pesanan")
+    @POST("pesanan.php")
     Call<PostPutDelPesanan> postPesanan(
             @Part MultipartBody.Part image,
             @Part("name") RequestBody name,
@@ -204,7 +204,7 @@ public interface ApiInterface {
     );
 
     @Multipart
-    @POST("pesanan")
+    @POST("pesanan.php")
     Call<PostPutDelPesanan> postUpdatePesanan(
             @Part MultipartBody.Part image,
             @Part("id") RequestBody id,
@@ -216,7 +216,7 @@ public interface ApiInterface {
     );
 
     @FormUrlEncoded
-    @HTTP(method = "DELETE", path = "pesanan", hasBody = true)
+    @HTTP(method = "DELETE", path = "pesanan.php", hasBody = true)
     Call<PostPutDelPesanan> deletePesanan(
             @Field("id") String id
     );
