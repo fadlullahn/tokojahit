@@ -122,10 +122,8 @@ public class PesananUbahActivity extends AppCompatActivity {
         btUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Panggil fungsi updateUpload
                 updateUpload();
 
-                // Membuat Intent untuk mengirim pesan konfirmasi
                 Intent intent = new Intent(PesananUbahActivity.this, PesananDataActivity.class);
                 intent.putExtra("pesan", "Pesanan Telah Dikonfirmasi");
                 startActivity(intent);

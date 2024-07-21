@@ -38,8 +38,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PesananTambahActivity extends AppCompatActivity {
-    TextView tvNameBaju,tvPrice, tvNameKain, tvNameDesain,tvLingkarBadan, tvLingkarPinggang, tvPanjangDada, tvLebarDada, tvPanjangPunggung, tvLebarPunggung, tvLebarBahu, tvLingkarLeher, tvTinggiDada, tvJarakDada, tvLingkarPangkalLengan, tvPanjangLengan, tvLingkarSiku, tvLingkarPergelanganTangan, tvLingkarKerungLengan, tvLingkarPanggul1, tvLingkarPanggul2, tvLingkarRok;
-    EditText etLingkarBadan, etLingkarPinggang, etPanjangDada, etLebarDada, etPanjangPunggung, etLebarPunggung, etLebarBahu, etLingkarLeher, etTinggiDada, etJarakDada, etLingkarPangkalLengan, etPanjangLengan, etLingkarSiku, etLingkarPergelanganTangan, etLingkarKerungLengan, etLingkarPanggul1, etLingkarPanggul2, etLingkarRok;
+    TextView tvProses,tvNameBaju,tvPrice, tvNameKain, tvNameDesain,tvLingkarBadan, tvLingkarPinggang, tvPanjangDada, tvLebarDada, tvPanjangPunggung, tvLebarPunggung, tvLebarBahu, tvLingkarLeher, tvTinggiDada, tvJarakDada, tvLingkarPangkalLengan, tvPanjangLengan, tvLingkarSiku, tvLingkarPergelanganTangan, tvLingkarKerungLengan, tvLingkarPanggul1, tvLingkarPanggul2, tvLingkarRok;
+    EditText etLingkarBadan, etLingkarPinggang, etPanjangDada, etLebarDada, etPanjangPunggung, etLebarPunggung, etLebarBahu, etLingkarLeher, etTinggiDada, etJarakDada, etLingkarPangkalLengan, etPanjangLengan, etLingkarSiku, etLingkarPergelanganTangan, etLingkarKerungLengan, etLingkarPanggul1, etLingkarPanggul2, etLingkarRok, etProses;
     EditText edtName, edtPrice;
     Button btnGalery, btSubmit;
     ImageView imgHolder;
@@ -123,6 +123,7 @@ public class PesananTambahActivity extends AppCompatActivity {
         etLingkarPanggul1 = findViewById(R.id.et_lingkar_panggul_1);
         etLingkarPanggul2 = findViewById(R.id.et_lingkar_panggul_2);
         etLingkarRok = findViewById(R.id.et_lingkar_rok);
+        etProses = findViewById(R.id.et_proses);
 
         // Ambil data dari SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UkuranPakaian", MODE_PRIVATE);
@@ -164,8 +165,8 @@ public class PesananTambahActivity extends AppCompatActivity {
         etLingkarPanggul1.setText(sharedPreferences.getString("LingkarPanggul1", "0"));
         etLingkarPanggul2.setText(sharedPreferences.getString("LingkarPanggul2", "0"));
         etLingkarRok.setText(sharedPreferences.getString("LingkarRok", "0"));
-
-        // Menyembunyikan TextView dari UI
+        etProses.setText(sharedPreferences.getString("Proses", "0"));
+//         Menyembunyikan TextView dari UI
         etLingkarBadan.setVisibility(View.GONE);
         etLingkarPinggang.setVisibility(View.GONE);
         etPanjangDada.setVisibility(View.GONE);
@@ -184,6 +185,7 @@ public class PesananTambahActivity extends AppCompatActivity {
         etLingkarPanggul1.setVisibility(View.GONE);
         etLingkarPanggul2.setVisibility(View.GONE);
         etLingkarRok.setVisibility(View.GONE);
+        etProses.setVisibility(View.GONE);
 
         // Identifikasi Komponen Form
         edtName = (EditText) findViewById(R.id.edt_name);
@@ -260,6 +262,7 @@ public class PesananTambahActivity extends AppCompatActivity {
             File imagefile = new File(mediaPath);
             RequestBody reqBody = RequestBody.create(MediaType.parse("multipart/form-file"), imagefile);
             MultipartBody.Part partImage = MultipartBody.Part.createFormData("image", imagefile.getName(), reqBody);
+
             Call<PostPutDelPesanan> postPesananCall = mApiInterface.postPesanan(
                     partImage,
                     RequestBody.create(MediaType.parse("text/plain"), edtName.getText().toString()),
@@ -286,9 +289,17 @@ public class PesananTambahActivity extends AppCompatActivity {
                     RequestBody.create(MediaType.parse("text/plain"), etLingkarKerungLengan.getText().toString()),
                     RequestBody.create(MediaType.parse("text/plain"), etLingkarPanggul1.getText().toString()),
                     RequestBody.create(MediaType.parse("text/plain"), etLingkarPanggul2.getText().toString()),
-                    RequestBody.create(MediaType.parse("text/plain"), etLingkarRok.getText().toString())
+                    RequestBody.create(MediaType.parse("text/plain"), etLingkarRok.getText().toString()),
+                    RequestBody.create(MediaType.parse("text/plain"), etProses.getText().toString())
             );
+
+            // Tambahkan logging pada response dari server
             postPesananCall.enqueue(new Callback<PostPutDelPesanan>() {
+                @Override
+                public void onFailure(Call<PostPutDelPesanan> call, Throwable t) {
+                    Log.d("RETRO", "ON FAILURE : " + t.getMessage());
+                    Toast.makeText(getApplicationContext(), "Error, image", Toast.LENGTH_LONG).show();
+                }
                 @Override
                 public void onResponse(Call<PostPutDelPesanan> call, Response<PostPutDelPesanan> response) {
                     Intent intent = new Intent(PesananTambahActivity.this, BajuDataActivity.class);
@@ -296,14 +307,13 @@ public class PesananTambahActivity extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 }
-                @Override
-                public void onFailure(Call<PostPutDelPesanan> call, Throwable t) {
-                    Log.d("RETRO", "ON FAILURE : " + t.getMessage());
-                    Toast.makeText(getApplicationContext(), "Error, image", Toast.LENGTH_LONG).show();
-                }
             });
+
+
         }
     }
+
+
 
     private void requestPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -312,4 +322,5 @@ public class PesananTambahActivity extends AppCompatActivity {
             saveImageUpload();
         }
     }
+
 }

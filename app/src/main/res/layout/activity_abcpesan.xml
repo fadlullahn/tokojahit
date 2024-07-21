@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Lingkar Badan"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Lingkar Pinggang"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Panjang Dada"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:hint="Lebar Dada"
             android:textSize="15sp"
-            android:inputType="text"
+            android:inputType="number"
             />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -117,7 +117,7 @@
             android:layout_height="wrap_content"
             android:hint="Panjang Punggung"
             android:textSize="15sp"
-            android:inputType="text"
+            android:inputType="number"
             />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -130,7 +130,7 @@
             android:layout_height="wrap_content"
             android:hint="Lebar Punggung"
             android:textSize="15sp"
-            android:inputType="text"
+            android:inputType="number"
             />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -143,7 +143,7 @@
             android:layout_height="wrap_content"
             android:hint="Lebar Bahu"
             android:textSize="15sp"
-            android:inputType="text"
+            android:inputType="number"
             />
          </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -156,7 +156,7 @@
             android:layout_height="wrap_content"
             android:hint="Lingkar Leher"
             android:textSize="15sp"
-            android:inputType="text"
+            android:inputType="number"
             />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -169,7 +169,7 @@
             android:layout_height="wrap_content"
             android:hint="Tinggi Dada"
             android:textSize="15sp"
-            android:inputType="text"
+            android:inputType="number"
             />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -182,7 +182,7 @@
             android:layout_height="wrap_content"
             android:hint="Jarak Dada"
             android:textSize="15sp"
-            android:inputType="text"
+            android:inputType="number"
             />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -208,7 +208,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Lingkar Pangkal Lengan"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -221,7 +221,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Panjang Lengan"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -234,7 +234,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Lingkar Siku"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -247,7 +247,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Lingkar Pergelangan Tangan"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -260,7 +260,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Lingkar Kerung Lengan"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -285,7 +285,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Lingkar Panggul 1"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -298,7 +298,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Lingkar Panggul 2"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -311,7 +311,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Lingkar Rok"
                 android:textSize="15sp"
-                android:inputType="text"
+                android:inputType="number"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 

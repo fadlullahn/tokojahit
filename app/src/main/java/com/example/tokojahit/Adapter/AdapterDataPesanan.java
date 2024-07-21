@@ -2,7 +2,6 @@ package com.example.tokojahit.Adapter;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +10,6 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.example.tokojahit.Config;
 import com.example.tokojahit.Model.Pesanan.Pesanan;
 import com.example.tokojahit.PesananUbahActivity;
 import com.example.tokojahit.R;
@@ -40,6 +36,7 @@ public class AdapterDataPesanan extends RecyclerView.Adapter<AdapterDataPesanan.
 //        yang tampil di data pesanan
         holder.mTextViewName.setText(mPesananList.get(position).getName());
         holder.mTextViewDate.setText(mPesananList.get(position).getDate());
+        holder.mTextViewProses.setText(mPesananList.get(position).getProses());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +70,7 @@ public class AdapterDataPesanan extends RecyclerView.Adapter<AdapterDataPesanan.
                 mIntent.putExtra("LingkarPanggul1", mPesananList.get(position).getLingkarPanggul1());
                 mIntent.putExtra("LingkarPanggul2", mPesananList.get(position).getLingkarPanggul2());
                 mIntent.putExtra("LingkarRok", mPesananList.get(position).getLingkarRok());
+                mIntent.putExtra("Proses", mPesananList.get(position).getProses());
                 view.getContext().startActivity(mIntent);
             }
         });
@@ -84,13 +82,14 @@ public class AdapterDataPesanan extends RecyclerView.Adapter<AdapterDataPesanan.
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView mTextViewName, mTextViewPrice, mTextViewDate;
+        public TextView mTextViewName, mTextViewPrice, mTextViewDate, mTextViewProses;
         public ImageView mImageViewFoto;
         public MyViewHolder(View itemView) {
             super(itemView);
             mTextViewName = (TextView) itemView.findViewById(R.id.tv_item_name);
             mTextViewPrice = (TextView) itemView.findViewById(R.id.tv_item_price);
             mTextViewDate = (TextView) itemView.findViewById(R.id.tv_item_date);
+            mTextViewProses = (TextView) itemView.findViewById(R.id.tv_item_proses);
             mImageViewFoto = itemView.findViewById(R.id.img_item_photo);
         }
     }

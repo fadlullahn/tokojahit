@@ -429,7 +429,7 @@
                 android:id="@+id/edt_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nama Produk"
+                android:hint="Name"
                 android:inputType="textCapSentences"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -555,5 +555,11 @@
                 android:layout_height="wrap_content"
                 android:hint=""
                 android:inputType="textCapSentences" />
+        <EditText
+            android:id="@+id/et_proses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="proses"
+            android:inputType="textCapSentences" />
     </LinearLayout>
 </ScrollView>

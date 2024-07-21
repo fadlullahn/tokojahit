@@ -200,7 +200,8 @@ public interface ApiInterface {
             @Part("lingkar_kerung_lengan") RequestBody lingkar_kerung_lengan,
             @Part("lingkar_panggul_1") RequestBody lingkar_panggul_1,
             @Part("lingkar_panggul_2") RequestBody lingkar_panggul_2,
-            @Part("lingkar_rok") RequestBody lingkar_rok
+            @Part("lingkar_rok") RequestBody lingkar_rok,
+            @Part("proses") RequestBody proses
     );
 
     @Multipart
