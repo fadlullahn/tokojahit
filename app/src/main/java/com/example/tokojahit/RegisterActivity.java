@@ -8,11 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.tokojahit.Api.ApiClient;
 import com.example.tokojahit.Api.ApiInterface;
@@ -40,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         etLevel = findViewById(R.id.etRegisterLevel);
         etEmail = findViewById(R.id.etRegisterEmail);
         etNowa = findViewById(R.id.etRegisterNowa);
+        etLevel.setVisibility(View.GONE);
 
         btnRegister = findViewById(R.id.btnRegister);
         btnRegister.setOnClickListener((View.OnClickListener) this);

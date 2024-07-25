@@ -66,6 +66,8 @@ public class BajuTambahActivity extends AppCompatActivity {
         btnGalery = (Button) findViewById(R.id.btn_galery);
         btSubmit = (Button) findViewById(R.id.btn_submit);
 
+        edtPrice.setVisibility(View.GONE);
+
         // Definisi API
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 

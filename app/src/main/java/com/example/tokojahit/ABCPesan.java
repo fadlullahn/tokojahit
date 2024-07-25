@@ -17,7 +17,7 @@ import com.example.tokojahit.Api.ApiInterface;
 
 public class ABCPesan extends AppCompatActivity {
     EditText etLingkarBadan, etLingkarPinggang, etPanjangDada, etLebarDada, etPanjangPunggung, etLebarPunggung, etLebarBahu, etLingkarLeher, etTinggiDada, etJarakDada, etLingkarPangkalLengan, etPanjangLengan, etLingkarSiku, etLingkarPergelanganTangan, etLingkarKerungLengan, etLingkarPanggul1, etLingkarPanggul2, etLingkarRok;
-    TextView edtNameDesain;
+    TextView edtNameDesain, edtPriceDesain;
     Button btnNext;
     String ID;
     ApiInterface mApiInterface;
@@ -29,11 +29,13 @@ public class ABCPesan extends AppCompatActivity {
 
         // Identifikasi Komponen Form
         edtNameDesain = (TextView) findViewById(R.id.edt_name_desain);
+        edtPriceDesain = (TextView) findViewById(R.id.edt_price_desain);
 
         // Identifikasi intent ke Komponen Form
         Intent mIntent = getIntent();
         ID = mIntent.getStringExtra("Id");
         edtNameDesain.setText(mIntent.getStringExtra("NameDesain"));
+        edtPriceDesain.setText(mIntent.getStringExtra("PriceDesain"));
 
         // Definisi API
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
@@ -42,6 +44,7 @@ public class ABCPesan extends AppCompatActivity {
         SharedPreferences sharedPreferences0 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences0.edit();
         editor.putString("NameDesain", edtNameDesain.getText().toString());
+        editor.putString("PriceDesain", edtPriceDesain.getText().toString());
         editor.apply();
 
         // Mengambil nilai 'Name' dari SharedPreferences
@@ -55,6 +58,9 @@ public class ABCPesan extends AppCompatActivity {
         // Mengambil nilai 'Name' dari SharedPreferences
         SharedPreferences sharedPreferences1 = PreferenceManager.getDefaultSharedPreferences(this);
         String NameKain = sharedPreferences1.getString("NameKain", "");
+
+        SharedPreferences sharedPreferences3 = PreferenceManager.getDefaultSharedPreferences(this);
+        String PriceKain = sharedPreferences3.getString("PriceKain", "");
 
         // Gunakan nilai 'nameValue' sesuai kebutuhan
         // Misalnya, set nilai pada TextView
@@ -71,11 +77,16 @@ public class ABCPesan extends AppCompatActivity {
         TextView textView1 = findViewById(R.id.edt_name_kain);
         textView1.setText(NameKain);
 
+        TextView textView3 = findViewById(R.id.edt_price_kain);
+        textView3.setText(PriceKain);
+
         // Menyembunyikan TextView dari UI
         textView.setVisibility(View.GONE);
         textView1.setVisibility(View.GONE);
         textView2.setVisibility(View.GONE);
         edtNameDesain.setVisibility(View.GONE);
+        edtPriceDesain.setVisibility(View.GONE);
+        textView3.setVisibility(View.GONE);
 
         // Identifikasi EditText
         etLingkarBadan = findViewById(R.id.et_lingkar_badan);

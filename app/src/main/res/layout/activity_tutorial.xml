@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     tools:context=".TutorialActivity">
 
     <TextView
@@ -14,10 +15,11 @@
         android:text="VIDEO TUTORIAL"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="@color/colorAccent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="24dp"/>
 
     <TextView
         android:id="@+id/tvCaraMengukur"
@@ -26,41 +28,45 @@
         android:text="Video Cara Mengukur"
         android:textStyle="bold"
         android:textSize="18sp"
+        android:textColor="@color/text_color"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"/>
 
     <WebView
         android:id="@+id/wvCaraMengukur"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="200dp"
         app:layout_constraintTop_toBottomOf="@+id/tvCaraMengukur"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
-
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
 
     <TextView
         android:id="@+id/tvCaraMembuatPola"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Video Cara Membuat Pola"
         android:textStyle="bold"
         android:textSize="18sp"
-        android:text="Video Cara Membuat Pola"
+        android:textColor="@color/text_color"
         app:layout_constraintTop_toBottomOf="@+id/wvCaraMengukur"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"/>
 
     <WebView
         android:id="@+id/wvCaraMembuatPola"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="200dp"
         app:layout_constraintTop_toBottomOf="@+id/tvCaraMembuatPola"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
-
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

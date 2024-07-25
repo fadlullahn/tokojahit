@@ -37,14 +37,13 @@ public class AdapterDataBaju extends RecyclerView.Adapter<AdapterDataBaju.MyView
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.mTextViewName.setText(mBajuList.get(position).getName());
         holder.mTextViewDate.setText(mBajuList.get(position).getDate());
+        holder.mTextViewPrice.setText(mBajuList.get(position).getPrice());
 
-        SpannableString spannablemTextViewPrice = new SpannableString("Rp." + mBajuList.get(position).getPrice());
 
-        holder.mTextViewPrice.setText(spannablemTextViewPrice);
 
         Glide.with(holder.itemView.getContext())
                 .load(Config.IMAGES_URL + mBajuList.get(position).getImage())
-                .apply(new RequestOptions().override(350, 350))
+                .apply(new RequestOptions().override(1200))
                 .into(holder.mImageViewFoto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +85,8 @@ public class AdapterDataBaju extends RecyclerView.Adapter<AdapterDataBaju.MyView
             mTextViewPrice = (TextView) itemView.findViewById(R.id.tv_item_price);
             mTextViewDate = (TextView) itemView.findViewById(R.id.tv_item_date);
             mImageViewFoto = itemView.findViewById(R.id.img_item_photo);
+
+            mTextViewPrice.setVisibility(View.GONE);
         }
     }
 }

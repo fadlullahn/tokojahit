@@ -32,6 +32,7 @@
             android:hint="Price"
             android:maxLines="1" />
 
+
         <TextView
             android:id="@+id/edt_name_kain"
             android:layout_width="match_parent"
@@ -40,10 +41,23 @@
             android:maxLines="1" />
 
         <TextView
+            android:id="@+id/edt_price_kain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price Kain"
+            android:maxLines="1" />
+
+        <TextView
             android:id="@+id/edt_name_desain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nama Desain"
+            android:maxLines="1" />
+        <TextView
+            android:id="@+id/edt_price_desain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Price Desain"
             android:maxLines="1" />
 
         <TextView

@@ -47,7 +47,7 @@ public class AdapterDataDesain extends RecyclerView.Adapter<AdapterDataDesain.My
 
         Glide.with(holder.itemView.getContext())
                 .load(Config.IMAGES_URL + mDesainList.get(position).getImage())
-                .apply(new RequestOptions().override(350, 350))
+                .apply(new RequestOptions().override(1200))
                 .into(holder.mImageViewFoto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +67,7 @@ public class AdapterDataDesain extends RecyclerView.Adapter<AdapterDataDesain.My
                 } else {
                     mIntent = new Intent(view.getContext(), ABCPesan.class);
                     mIntent.putExtra("NameDesain", mDesainList.get(position).getName());
+                    mIntent.putExtra("PriceDesain", mDesainList.get(position).getPrice());
                 }
                 view.getContext().startActivity(mIntent);
             }

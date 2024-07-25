@@ -26,6 +26,7 @@ import com.example.tokojahit.Api.ApiInterface;
 import com.example.tokojahit.Model.Pesanan.PostPutDelPesanan;
 
 import java.io.File;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -38,7 +39,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PesananTambahActivity extends AppCompatActivity {
-    TextView tvProses,tvNameBaju,tvPrice, tvNameKain, tvNameDesain,tvLingkarBadan, tvLingkarPinggang, tvPanjangDada, tvLebarDada, tvPanjangPunggung, tvLebarPunggung, tvLebarBahu, tvLingkarLeher, tvTinggiDada, tvJarakDada, tvLingkarPangkalLengan, tvPanjangLengan, tvLingkarSiku, tvLingkarPergelanganTangan, tvLingkarKerungLengan, tvLingkarPanggul1, tvLingkarPanggul2, tvLingkarRok;
+    TextView  tvPriceDesain, tvPriceKain,tvProses,tvNameBaju,tvPrice, tvNameKain, tvNameDesain,tvLingkarBadan, tvLingkarPinggang, tvPanjangDada, tvLebarDada, tvPanjangPunggung, tvLebarPunggung, tvLebarBahu, tvLingkarLeher, tvTinggiDada, tvJarakDada, tvLingkarPangkalLengan, tvPanjangLengan, tvLingkarSiku, tvLingkarPergelanganTangan, tvLingkarKerungLengan, tvLingkarPanggul1, tvLingkarPanggul2, tvLingkarRok;
     EditText etLingkarBadan, etLingkarPinggang, etPanjangDada, etLebarDada, etPanjangPunggung, etLebarPunggung, etLebarBahu, etLingkarLeher, etTinggiDada, etJarakDada, etLingkarPangkalLengan, etPanjangLengan, etLingkarSiku, etLingkarPergelanganTangan, etLingkarKerungLengan, etLingkarPanggul1, etLingkarPanggul2, etLingkarRok, etProses;
     EditText edtName, edtPrice;
     Button btnGalery, btSubmit;
@@ -72,17 +73,41 @@ public class PesananTambahActivity extends AppCompatActivity {
         String Price = sharedPreferences3.getString("Price", "");
         SharedPreferences sharedPreferences1 = PreferenceManager.getDefaultSharedPreferences(this);
         String NameKain = sharedPreferences1.getString("NameKain", "");
+        String PriceKain = sharedPreferences1.getString("PriceKain", "");
         SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(this);
         String NameDesain = sharedPreferences2.getString("NameDesain", "");
+        String PriceDesain = sharedPreferences2.getString("PriceDesain", "");
+
+
+
+
+// Mengonversi nilai dari String ke double
+        double PriceKainValue = PriceKain.isEmpty() ? 0 : Double.parseDouble(PriceKain);
+        double PriceDesainValue = PriceDesain.isEmpty() ? 0 : Double.parseDouble(PriceDesain);
+
+// Menjumlahkan harga
+        double TotalPrice = PriceKainValue + PriceDesainValue;
+
+// Format angka untuk menghilangkan nol di belakang desimal
+        DecimalFormat decimalFormat = new DecimalFormat("0.#");
+        String TotalPriceStr = decimalFormat.format(TotalPrice);
+
 
         tvNameBaju = findViewById(R.id.tv_name_baju);
         tvNameBaju.setText(NameBaju);
         tvPrice = findViewById(R.id.tv_price);
-        tvPrice.setText(Price);
+        tvPrice.setText(TotalPriceStr);
+
+
         tvNameKain = findViewById(R.id.tv_name_kain);
         tvNameKain.setText(NameKain);
+        tvPriceKain = findViewById(R.id.tv_price_kain);
+        tvPriceKain.setText(PriceKain);
+
         tvNameDesain = findViewById(R.id.tv_name_desain);
         tvNameDesain.setText(NameDesain);
+        tvPriceDesain = findViewById(R.id.tv_price_desain);
+        tvPriceDesain.setText(PriceDesain);
 
         // Identifikasi TextView
         tvLingkarBadan = findViewById(R.id.tv_lingkar_badan);
@@ -191,7 +216,7 @@ public class PesananTambahActivity extends AppCompatActivity {
         edtName = (EditText) findViewById(R.id.edt_name);
         edtName.setText(nameU);
         edtPrice = (EditText) findViewById(R.id.edt_price);
-        edtPrice.setText(Price);
+        edtPrice.setText(TotalPriceStr);
         // Menyembunyikan TextView dari UI
         edtName.setVisibility(View.GONE);
         edtPrice.setVisibility(View.GONE);

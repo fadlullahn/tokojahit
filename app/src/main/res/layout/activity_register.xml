@@ -5,87 +5,118 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="25dp"
+    android:background="@color/background_color"
     tools:context=".RegisterActivity">
 
     <TextView
         android:id="@+id/tvPleaseCreateAccount"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Make Your Account"
-        android:textSize="24sp"/>
+        android:text="Create Your Account"
+        android:textSize="26sp"
+        android:textColor="@color/colorAccent"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"/>
 
     <EditText
         android:id="@+id/etRegisterUsername"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/tvPleaseCreateAccount"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/tvPleaseCreateAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Username"
-        android:drawablePadding="24dp"/>
+        android:drawablePadding="16dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="15dp"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/etRegisterName"
-        android:layout_below="@+id/etRegisterUsername"
+        android:layout_below="@id/etRegisterUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="Your Name"
-        android:drawablePadding="24dp"/>
+        android:drawablePadding="16dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="15dp"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/etRegisterPassword"
-        android:layout_below="@+id/etRegisterName"
+        android:layout_below="@id/etRegisterName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:drawablePadding="24dp"/>
+        android:drawablePadding="16dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="15dp"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/etRegisterLevel"
-        android:layout_below="@+id/etRegisterPassword"
+        android:layout_below="@id/etRegisterPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="Level"
+        android:text="user"
         android:inputType="text"
-        android:drawablePadding="24dp"/>
+        android:drawablePadding="16dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="15dp"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/etRegisterEmail"
-        android:layout_below="@+id/etRegisterLevel"
+        android:layout_below="@id/etRegisterLevel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="Email"
-        android:inputType="text"
-        android:drawablePadding="24dp"/>
+        android:inputType="textEmailAddress"
+        android:drawablePadding="16dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="15dp"
+        android:textColor="@color/black"/>
 
     <EditText
         android:id="@+id/etRegisterNowa"
-        android:layout_below="@+id/etRegisterEmail"
+        android:layout_below="@id/etRegisterEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="Nowa"
         android:inputType="text"
-        android:drawablePadding="24dp"/>
+        android:drawablePadding="16dp"
+        android:background="@drawable/edit_text_background"
+        android:padding="15dp"
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_below="@id/etRegisterNowa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="REGISTER"/>
+        android:layout_marginTop="20dp"
+        android:text="REGISTER"
+        android:textColor="@android:color/white"
+        android:background="@color/button_color"
+        android:textSize="16sp"
+        android:padding="15dp"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:id="@+id/tvLoginHere"
         android:layout_below="@id/btnRegister"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="Already Have Account? Login Here"/>
-
+        android:text="Already Have an Account? Login Here"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
 </RelativeLayout>

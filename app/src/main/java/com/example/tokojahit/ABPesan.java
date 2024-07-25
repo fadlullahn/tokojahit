@@ -28,7 +28,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ABPesan extends AppCompatActivity {
-    TextView edtNameKain;
+    TextView edtNameKain, edtPriceKain;
     String ID;
     ApiInterface mApiInterface;
     SessionManager sessionManager;
@@ -46,12 +46,15 @@ public class ABPesan extends AppCompatActivity {
 
         // Identifikasi Komponen Form
         edtNameKain = (TextView) findViewById(R.id.edt_name_kain);
+        edtPriceKain = (TextView) findViewById(R.id.edt_price_kain);
 
 
         // Identifikasi intent ke Komponen Form
         Intent mIntent = getIntent();
         ID = mIntent.getStringExtra("Id");
         edtNameKain.setText(mIntent.getStringExtra("NameKain"));
+        edtPriceKain.setText(mIntent.getStringExtra("PriceKain"));
+
 
         // Definisi API
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
@@ -70,7 +73,10 @@ public class ABPesan extends AppCompatActivity {
         SharedPreferences sharedPreferences1 = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences1.edit();
         editor.putString("NameKain", edtNameKain.getText().toString());
+        editor.putString("PriceKain", edtPriceKain.getText().toString());
         editor.apply();
+
+
 
         // Mengambil nilai 'Name' dari SharedPreferences
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -84,11 +90,11 @@ public class ABPesan extends AppCompatActivity {
         TextView textView1 = findViewById(R.id.edt_price);
         textView1.setText(Price);
 
-
         // Menyembunyikan TextView dari UI
         textView.setVisibility(View.GONE);
         textView1.setVisibility(View.GONE);
         edtNameKain.setVisibility(View.GONE);
+        edtPriceKain.setVisibility(View.GONE);
     }
 
     public void refresh() {

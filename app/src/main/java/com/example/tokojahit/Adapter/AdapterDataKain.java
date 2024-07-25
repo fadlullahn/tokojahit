@@ -43,7 +43,7 @@ public class AdapterDataKain extends RecyclerView.Adapter<AdapterDataKain.MyView
 
         Glide.with(holder.itemView.getContext())
                 .load(Config.IMAGES_URL + mKainList.get(position).getImage())
-                .apply(new RequestOptions().override(350, 350))
+                .apply(new RequestOptions().override(1200))
                 .into(holder.mImageViewFoto);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +63,7 @@ public class AdapterDataKain extends RecyclerView.Adapter<AdapterDataKain.MyView
                 } else {
                     mIntent = new Intent(view.getContext(), ABPesan.class);
                     mIntent.putExtra("NameKain", mKainList.get(position).getName());
+                    mIntent.putExtra("PriceKain", mKainList.get(position).getPrice());
                 }
                 view.getContext().startActivity(mIntent);
             }

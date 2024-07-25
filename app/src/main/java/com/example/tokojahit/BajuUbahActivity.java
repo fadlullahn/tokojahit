@@ -87,6 +87,8 @@ public class BajuUbahActivity extends AppCompatActivity {
         edtName.setText(mIntent.getStringExtra("NameBaju"));
         edtPrice.setText(mIntent.getStringExtra("Price"));
 
+        edtPrice.setVisibility(View.GONE);
+
         // Masukan Gambar Ke Image View Gunakan Glide
         Glide.with(BajuUbahActivity.this)
                 .load(Config.IMAGES_URL + mIntent.getStringExtra("Image"))
