@@ -91,10 +91,10 @@ public class ABPesan extends AppCompatActivity {
         textView1.setText(Price);
 
         // Menyembunyikan TextView dari UI
-        textView.setVisibility(View.GONE);
-        textView1.setVisibility(View.GONE);
-        edtNameKain.setVisibility(View.GONE);
-        edtPriceKain.setVisibility(View.GONE);
+//        textView.setVisibility(View.GONE);
+//        textView1.setVisibility(View.GONE);
+//        edtNameKain.setVisibility(View.GONE);
+//        edtPriceKain.setVisibility(View.GONE);
     }
 
     public void refresh() {

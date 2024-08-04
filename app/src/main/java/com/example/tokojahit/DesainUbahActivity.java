@@ -129,6 +129,7 @@ public class DesainUbahActivity extends AppCompatActivity {
 
             edtPrice.setEnabled(false);
             edtPrice.setFocusable(false);
+
         }
 
         // Fungsi Tombol Pilih Galery
@@ -217,20 +218,37 @@ public class DesainUbahActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_delete, menu);
+
+        // Periksa level pengguna dan sembunyikan menu jika level adalah user
+        String level = sessionManager.getUserDetail().get(SessionManager.LEVEL);
+        if ("user".equals(level)) {
+            MenuItem deleteItem = menu.findItem(R.id.actionDelete);
+            deleteItem.setVisible(false);
+        }
+
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        String level = sessionManager.getUserDetail().get(SessionManager.LEVEL);
+
         if (item.getItemId() == R.id.actionDelete) {
-            showAlertDialog(ALERT_DIALOG_DELETE);
+            if (!"user".equals(level)) {
+                showAlertDialog(ALERT_DIALOG_DELETE);
+            }
             return true;
         } else if (item.getItemId() == android.R.id.home) {
-            showAlertDialog(ALERT_DIALOG_CLOSE);
+            if (!"user".equals(level)) {
+                showAlertDialog(ALERT_DIALOG_CLOSE);
+            } else {
+                finish(); // Kembali ke halaman sebelumnya tanpa menampilkan dialog
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 
     @Override

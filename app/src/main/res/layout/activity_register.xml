@@ -98,7 +98,7 @@
 
     <EditText
         android:id="@+id/etRegisterAlamat"
-        android:layout_below="@id/etRegisterEmail"
+        android:layout_below="@id/etRegisterNowa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -111,7 +111,7 @@
 
     <Button
         android:id="@+id/btnRegister"
-        android:layout_below="@id/etRegisterNowa"
+        android:layout_below="@id/etRegisterAlamat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
