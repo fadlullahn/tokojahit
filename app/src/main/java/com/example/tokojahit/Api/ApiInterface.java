@@ -40,7 +40,8 @@ public interface ApiInterface {
             @Field("name") String name,
             @Field("level") String level,
             @Field("email") String email,
-            @Field("nowa") String nowa
+            @Field("nowa") String nowa,
+            @Field("alamat") String alamat
     );
 
 
@@ -55,7 +56,8 @@ public interface ApiInterface {
             @Field("level") String level,
             @Field("password") String password,
             @Field("email") String email,
-            @Field("nowa") String nowa
+            @Field("nowa") String nowa,
+            @Field("alamat") String alamat
     );
 
     @FormUrlEncoded
@@ -79,7 +81,8 @@ public interface ApiInterface {
             @Field("level") String level,
             @Field("password") String password,
             @Field("email") String email,
-            @Field("nowa") String nowa
+            @Field("nowa") String nowa,
+            @Field("alamat") String alamat
     );
 
 
@@ -118,6 +121,9 @@ public interface ApiInterface {
     @Multipart
     @POST("desain.php")
     Call<PostPutDelDesain> postDesain(@Part MultipartBody.Part image,
+                                      @Part MultipartBody.Part image2,
+                                    @Part MultipartBody.Part image3,
+                                      @Part MultipartBody.Part image4,
                                     @Part("name") RequestBody name,
                                     @Part("price") RequestBody price,
                                     @Part("date") RequestBody date,

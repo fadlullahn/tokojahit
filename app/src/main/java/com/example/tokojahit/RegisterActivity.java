@@ -19,10 +19,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    EditText etUsername, etPassword, etName, etLevel, etEmail, etNowa;
+    EditText etUsername, etPassword, etName, etLevel, etEmail, etNowa, etAlamat;
     Button btnRegister;
     TextView tvLogin;
-    String Username, Password, Name, Level, Email, Nowa;
+    String Username, Password, Name, Level, Email, Nowa, Alamat;
     ApiInterface apiInterface;
 
     @Override
@@ -36,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         etLevel = findViewById(R.id.etRegisterLevel);
         etEmail = findViewById(R.id.etRegisterEmail);
         etNowa = findViewById(R.id.etRegisterNowa);
+        etAlamat = findViewById(R.id.etRegisterAlamat);
         etLevel.setVisibility(View.GONE);
 
         btnRegister = findViewById(R.id.btnRegister);
@@ -55,7 +56,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             Level = etLevel.getText().toString();
             Email = etEmail.getText().toString();
             Nowa = etNowa.getText().toString();
-            register(Username, Password, Name, Level, Email, Nowa);
+            Alamat = etAlamat.getText().toString();
+            register(Username, Password, Name, Level, Email, Nowa, Alamat);
         } else if (id == R.id.tvLoginHere) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
@@ -63,10 +65,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    private void register(String username, String password, String name, String level, String email, String nowa) {
+    private void register(String username, String password, String name, String level, String email, String nowa, String alamat) {
 
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<Register> call = apiInterface.registerResponse(username, password, name, level, email, nowa);
+        Call<Register> call = apiInterface.registerResponse(username, password, name, level, email, nowa, alamat);
         call.enqueue(new Callback<Register>() {
             @Override
             public void onResponse(Call<Register> call, Response<Register> response) {

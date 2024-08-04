@@ -23,10 +23,10 @@ import retrofit2.Response;
 
 public class UserUbahActivity extends AppCompatActivity {
     private int xId;
-    private String xName, xUsername, xLevel, xPassword, xEmail, xNowa;
-    private EditText etName, etUsername, etLevel, etPassword, etEmail, etNowa;
+    private String xName, xUsername, xLevel, xPassword, xEmail, xNowa,xAlamat;
+    private EditText etName, etUsername, etLevel, etPassword, etEmail, etNowa, etAlamat;
     private Button btnUbah;
-    private String yName, yUsername, yLevel,yPassword, yEmail, yNowa;
+    private String yName, yUsername, yLevel,yPassword, yEmail, yNowa, yAlamat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,7 @@ public class UserUbahActivity extends AppCompatActivity {
         xPassword = terima.getStringExtra("xPassword");
         xEmail = terima.getStringExtra("xEmail");
         xNowa = terima.getStringExtra("xNowa");
+        xAlamat = terima.getStringExtra("xAlamat");
 
         etName = findViewById(R.id.et_name);
         etUsername = findViewById(R.id.et_username);
@@ -48,6 +49,7 @@ public class UserUbahActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.et_password);
         etEmail = findViewById(R.id.et_email);
         etNowa = findViewById(R.id.et_nowa);
+        etAlamat = findViewById(R.id.et_alamat);
         btnUbah = findViewById(R.id.btn_ubah);
 
         etName.setText(xName);
@@ -56,6 +58,7 @@ public class UserUbahActivity extends AppCompatActivity {
         etPassword.setText(xPassword);
         etEmail.setText(xEmail);
         etNowa.setText(xNowa);
+        etAlamat.setText(xAlamat);
 
         btnUbah.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +69,7 @@ public class UserUbahActivity extends AppCompatActivity {
                 yPassword = etPassword.getText().toString();
                 yEmail = etEmail.getText().toString();
                 yNowa = etNowa.getText().toString();
+                yAlamat = etAlamat.getText().toString();
 
                 updateData();
             }
@@ -74,7 +78,7 @@ public class UserUbahActivity extends AppCompatActivity {
 
     private void updateData(){
         ApiInterface ardData = ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseModel> ubahData = ardData.ardUpdateData(xId, yName, yUsername, yLevel,yPassword, yEmail, yNowa);
+        Call<ResponseModel> ubahData = ardData.ardUpdateData(xId, yName, yUsername, yLevel,yPassword, yEmail, yNowa, yAlamat);
 
         ubahData.enqueue(new Callback<ResponseModel>() {
             @Override

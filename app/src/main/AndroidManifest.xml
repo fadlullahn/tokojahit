@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
@@ -21,64 +21,71 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".UseLanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProUseActivity"
+            android:exported="false"
+            android:parentActivityName=".UseLanActivity"/>
+        <activity
             android:name=".PesananUbahActivity"
             android:exported="false"
-            android:parentActivityName=".PesananDataActivity"/>
+            android:parentActivityName=".PesananDataActivity" />
         <activity
             android:name=".PesananDataActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".PesananTambahActivity"
-            android:parentActivityName=".ABCPesan"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ABCPesan" />
         <activity
             android:name=".ABCPesan"
-            android:parentActivityName=".ABPesan"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ABPesan" />
         <activity
             android:name=".ABPesan"
-            android:parentActivityName=".APesan"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".APesan" />
         <activity
             android:name=".APesan"
-            android:parentActivityName=".BajuDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".BajuDataActivity" />
         <activity
             android:name=".BajuUbahActivity"
-            android:parentActivityName=".BajuDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".BajuDataActivity" />
         <activity
             android:name=".BajuTambahActivity"
-            android:parentActivityName=".BajuDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".BajuDataActivity" />
         <activity
             android:name=".BajuDataActivity"
             android:exported="false" />
         <activity
             android:name=".DesainUbahActivity"
-            android:parentActivityName=".DesainDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".DesainDataActivity" />
         <activity
             android:name=".DesainTambahActivity"
-            android:parentActivityName=".DesainDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".DesainDataActivity" />
         <activity
             android:name=".DesainDataActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".KainTambahActivity"
-            android:parentActivityName=".KainDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".KainDataActivity" />
         <activity
             android:name=".KainUbahActivity"
-            android:parentActivityName=".KainDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".KainDataActivity" />
         <activity
             android:name=".KainDataActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".TutorialActivity"
             android:exported="false" />
@@ -87,16 +94,16 @@
             android:exported="false" />
         <activity
             android:name=".UserUbahActivity"
-            android:parentActivityName=".UserDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".UserDataActivity" />
         <activity
             android:name=".UserTambahActivity"
-            android:parentActivityName=".UserDataActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".UserDataActivity" />
         <activity
             android:name=".UserDataActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />

@@ -26,6 +26,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.tokojahit.Adapter.SessionManager;
 import com.example.tokojahit.Api.ApiClient;
 import com.example.tokojahit.Api.ApiInterface;
 import com.example.tokojahit.Model.Desain.PostPutDelDesain;
@@ -45,7 +46,7 @@ import retrofit2.Response;
 
 public class DesainUbahActivity extends AppCompatActivity {
     EditText edtName, edtPrice;
-    ImageView imgHolder;
+    ImageView imgHolder, imgHolder2, imgHolder3, imgHolder4;
     String ID;
     Button btnGalery, btUpdate;
 
@@ -59,6 +60,7 @@ public class DesainUbahActivity extends AppCompatActivity {
     private final int ALERT_DIALOG_CLOSE = Config.ALERT_DIALOG_CLOSE;
     private final int ALERT_DIALOG_DELETE = Config.ALERT_DIALOG_DELETE;
     private static final String UPDATE_FLAG = Config.UPDATE_FLAG;
+    private SessionManager sessionManager;
 
     // Akses Izin Ambil Gambar dari Storage
     @Override
@@ -73,11 +75,13 @@ public class DesainUbahActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_desain_ubah);
 
-
         // Identifikasi Komponen Form
         edtName = (EditText) findViewById(R.id.edt_name);
         edtPrice = (EditText) findViewById(R.id.edt_price);
         imgHolder = (ImageView) findViewById(R.id.imgHolder);
+        imgHolder2 = (ImageView) findViewById(R.id.imgHolder2);
+        imgHolder3 = (ImageView) findViewById(R.id.imgHolder3);
+        imgHolder4 = (ImageView) findViewById(R.id.imgHolder4);
         btnGalery = (Button) findViewById(R.id.btn_galery);
         btUpdate = (Button) findViewById(R.id.btn_submit);
 
@@ -93,8 +97,39 @@ public class DesainUbahActivity extends AppCompatActivity {
                 .apply(new RequestOptions().override(550, 550))
                 .into(imgHolder);
 
+        Glide.with(DesainUbahActivity.this)
+                .load(Config.IMAGES_URL + mIntent.getStringExtra("Image2"))
+                .apply(new RequestOptions().override(550, 550))
+                .into(imgHolder2);
+
+        Glide.with(DesainUbahActivity.this)
+                .load(Config.IMAGES_URL + mIntent.getStringExtra("Image3"))
+                .apply(new RequestOptions().override(550, 550))
+                .into(imgHolder3);
+
+        Glide.with(DesainUbahActivity.this)
+                .load(Config.IMAGES_URL + mIntent.getStringExtra("Image4"))
+                .apply(new RequestOptions().override(550, 550))
+                .into(imgHolder4);
+
         // Definisi API
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
+
+        // Inisialisasi SessionManager
+        sessionManager = new SessionManager(this);
+        String level = sessionManager.getUserDetail().get(SessionManager.LEVEL);
+
+        // Periksa level pengguna dan sembunyikan tombol jika level adalah user
+        if ("user".equals(level)) {
+            btnGalery.setVisibility(View.GONE);
+            btUpdate.setVisibility(View.GONE);
+
+            edtName.setEnabled(false);
+            edtName.setFocusable(false);
+
+            edtPrice.setEnabled(false);
+            edtPrice.setFocusable(false);
+        }
 
         // Fungsi Tombol Pilih Galery
         btnGalery.setOnClickListener(new View.OnClickListener() {

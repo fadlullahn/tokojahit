@@ -1,7 +1,7 @@
 package com.example.tokojahit.Model.User;
 public class DataModel {
     private int id;
-    private String name, username, level, password, email, nowa;
+    private String name, username, level, password, email, nowa, alamat;
 
     public int getId() {
         return id;
@@ -57,5 +57,13 @@ public class DataModel {
 
     public void setNowa(String nowa) {
         this.nowa = nowa;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
 }

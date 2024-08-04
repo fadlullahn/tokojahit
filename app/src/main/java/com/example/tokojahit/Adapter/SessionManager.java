@@ -22,6 +22,7 @@ public class SessionManager {
     public static final String PASSWORD = "password";
     public static final String EMAIL = "email";
     public static final String NOWA = "nowa";
+    public static final String ALAMAT = "alamat";
 
     public SessionManager (Context context){
         this._context = context;
@@ -38,6 +39,7 @@ public class SessionManager {
         editor.putString(PASSWORD, user.getPassword());
         editor.putString(EMAIL, user.getEmail());
         editor.putString(NOWA, user.getNowa());
+        editor.putString(ALAMAT, user.getAlamat());
         editor.commit();
     }
 
@@ -50,6 +52,7 @@ public class SessionManager {
         user.put(PASSWORD, sharedPreferences.getString(PASSWORD,null));
         user.put(EMAIL, sharedPreferences.getString(EMAIL,null));
         user.put(NOWA, sharedPreferences.getString(NOWA,null));
+        user.put(ALAMAT, sharedPreferences.getString(ALAMAT,null));
         return user;
     }
 

@@ -21,9 +21,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UserTambahActivity extends AppCompatActivity {
-    private EditText etName, etUsername, etLevel, etPassword, etEmail, etNowa;
+    private EditText etName, etUsername, etLevel, etPassword, etEmail, etNowa, etAlamat;
     private Button btnSimpan;
-    private String name, username, level,password, email, nowa;
+    private String name, username, level,password, email, nowa, alamat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,7 @@ public class UserTambahActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.et_password);
         etEmail = findViewById(R.id.et_email);
         etNowa = findViewById(R.id.et_nowa);
+        etAlamat = findViewById(R.id.et_alamat);
         btnSimpan = findViewById(R.id.btn_simpan);
 
         btnSimpan.setOnClickListener(new View.OnClickListener() {
@@ -47,6 +48,7 @@ public class UserTambahActivity extends AppCompatActivity {
                 password = etPassword.getText().toString();
                 email = etEmail.getText().toString();
                 nowa = etNowa.getText().toString();
+                alamat = etAlamat.getText().toString();
 
                 if(name.trim().equals("")){
                     etName.setError("Name Harus Diisi");
@@ -63,6 +65,8 @@ public class UserTambahActivity extends AppCompatActivity {
                     etEmail.setError("Password Harus Diisi");
                 } else if(nowa.trim().equals("")){
                     etNowa.setError("Password Harus Diisi");
+                }else if(alamat.trim().equals("")){
+                    etAlamat.setError("Alamat Harus Diisi");
                 }
                 else{
                     createData();
@@ -73,7 +77,7 @@ public class UserTambahActivity extends AppCompatActivity {
 
     private void createData(){
         ApiInterface ardData = ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseModel> simpanData = ardData.ardCreateData(name, username, level, password, email, nowa);
+        Call<ResponseModel> simpanData = ardData.ardCreateData(name, username, level, password, email, nowa, alamat);
 
         simpanData.enqueue(new Callback<ResponseModel>() {
             @Override

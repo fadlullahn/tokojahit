@@ -5,6 +5,7 @@ import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ import com.example.tokojahit.BajuUbahActivity;
 import com.example.tokojahit.Config;
 import com.example.tokojahit.DesainUbahActivity;
 import com.example.tokojahit.Model.Desain.Desain;
+import com.example.tokojahit.ProUseActivity;
 import com.example.tokojahit.R;
 
 import java.util.List;
@@ -30,7 +32,7 @@ public class AdapterDataDesain extends RecyclerView.Adapter<AdapterDataDesain.My
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_kain, parent, false);
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_item_desain, parent, false);
         MyViewHolder mViewHolder = new MyViewHolder(mView);
         return mViewHolder;
     }
@@ -50,6 +52,21 @@ public class AdapterDataDesain extends RecyclerView.Adapter<AdapterDataDesain.My
                 .apply(new RequestOptions().override(1200))
                 .into(holder.mImageViewFoto);
 
+        Glide.with(holder.itemView.getContext())
+                .load(Config.IMAGES_URL + mDesainList.get(position).getImage2())
+                .apply(new RequestOptions().override(1200))
+                .into(holder.mImageViewFoto2);
+
+        Glide.with(holder.itemView.getContext())
+                .load(Config.IMAGES_URL + mDesainList.get(position).getImage3())
+                .apply(new RequestOptions().override(1200))
+                .into(holder.mImageViewFoto3);
+
+        Glide.with(holder.itemView.getContext())
+                .load(Config.IMAGES_URL + mDesainList.get(position).getImage4())
+                .apply(new RequestOptions().override(1200))
+                .into(holder.mImageViewFoto4);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,11 +81,31 @@ public class AdapterDataDesain extends RecyclerView.Adapter<AdapterDataDesain.My
                     mIntent.putExtra("Price", mDesainList.get(position).getPrice());
                     mIntent.putExtra("Date", mDesainList.get(position).getDate());
                     mIntent.putExtra("Image", mDesainList.get(position).getImage());
+                    mIntent.putExtra("Image2", mDesainList.get(position).getImage2());
+                    mIntent.putExtra("Image3", mDesainList.get(position).getImage3());
+                    mIntent.putExtra("Image4", mDesainList.get(position).getImage4());
+
                 } else {
                     mIntent = new Intent(view.getContext(), ABCPesan.class);
                     mIntent.putExtra("NameDesain", mDesainList.get(position).getName());
                     mIntent.putExtra("PriceDesain", mDesainList.get(position).getPrice());
                 }
+                view.getContext().startActivity(mIntent);
+            }
+        });
+
+        holder.btnDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mIntent = new Intent(view.getContext(), DesainUbahActivity.class); // Ganti APesan dengan Activity yang dituju
+                mIntent.putExtra("Id", mDesainList.get(position).getId());
+                mIntent.putExtra("NameDesain", mDesainList.get(position).getName());
+                mIntent.putExtra("Price", mDesainList.get(position).getPrice());
+                mIntent.putExtra("Date", mDesainList.get(position).getDate());
+                mIntent.putExtra("Image", mDesainList.get(position).getImage());
+                mIntent.putExtra("Image2", mDesainList.get(position).getImage2());
+                mIntent.putExtra("Image3", mDesainList.get(position).getImage3());
+                mIntent.putExtra("Image4", mDesainList.get(position).getImage4());
                 view.getContext().startActivity(mIntent);
             }
         });
@@ -81,7 +118,8 @@ public class AdapterDataDesain extends RecyclerView.Adapter<AdapterDataDesain.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView mTextViewName, mTextViewPrice, mTextViewDate;
-        public ImageView mImageViewFoto;
+        public ImageView mImageViewFoto, mImageViewFoto2, mImageViewFoto3, mImageViewFoto4;
+        public Button btnDetail;
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -89,6 +127,12 @@ public class AdapterDataDesain extends RecyclerView.Adapter<AdapterDataDesain.My
             mTextViewPrice = (TextView) itemView.findViewById(R.id.tv_item_price);
             mTextViewDate = (TextView) itemView.findViewById(R.id.tv_item_date);
             mImageViewFoto = itemView.findViewById(R.id.img_item_photo);
+            mImageViewFoto2 = itemView.findViewById(R.id.img_item_photo2);
+            mImageViewFoto3 = itemView.findViewById(R.id.img_item_photo3);
+            mImageViewFoto4 = itemView.findViewById(R.id.img_item_photo4);
+            btnDetail = itemView.findViewById(R.id.btn_detail);
+
+
         }
     }
 }

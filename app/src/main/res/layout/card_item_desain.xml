@@ -35,6 +35,39 @@
                 android:scaleType="fitCenter"
                 tools:src="@color/colorAccent" />
 
+            <ImageView
+                android:id="@+id/img_item_photo2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                tools:src="@color/colorAccent" />
+
+            <ImageView
+                android:id="@+id/img_item_photo3"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                tools:src="@color/colorAccent" />
+
+            <ImageView
+                android:id="@+id/img_item_photo4"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone"
+                tools:src="@color/colorAccent" />
+
             <TextView
                 android:id="@+id/tv_item_date"
                 android:layout_width="wrap_content"
@@ -72,6 +105,27 @@
                 android:maxLines="3"
                 android:textColor="@color/text_color"
                 tools:text="Harga" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_price"
+                android:layout_marginTop="16dp"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="Detail"
+                    android:background="@color/button_color"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

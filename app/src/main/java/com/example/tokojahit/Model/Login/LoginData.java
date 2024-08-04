@@ -22,6 +22,8 @@ public class LoginData {
     private String email;
     @SerializedName("nowa")
     private String nowa;
+    @SerializedName("alamat")
+    private String alamat;
 
     public void setUserId(String userId){
         this.userId = userId;
@@ -77,5 +79,13 @@ public class LoginData {
 
     public String getNowa(){
         return nowa;
+    }
+
+    public void setAlamat(String alamat){
+        this.alamat = alamat;
+    }
+
+    public String getAlamat(){
+        return alamat;
     }
 }

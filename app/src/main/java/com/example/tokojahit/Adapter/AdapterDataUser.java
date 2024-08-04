@@ -60,6 +60,8 @@ public class AdapterDataUser extends RecyclerView.Adapter<AdapterDataUser.Holder
         SpannableString spannablePassword = new SpannableString("Password: " + dm.getPassword());
         SpannableString spannableEmail = new SpannableString("Email: " + dm.getEmail());
         SpannableString spannableNowa = new SpannableString("No.Hp: " + dm.getNowa());
+        SpannableString spannableAlamat = new SpannableString("Alamat: " + dm.getAlamat());
+
 
         holder.tvName.setText(spannableName);
         holder.tvUsername.setText(spannableUsername);
@@ -67,6 +69,7 @@ public class AdapterDataUser extends RecyclerView.Adapter<AdapterDataUser.Holder
         holder.tvLevel.setText(spannableLevel);
         holder.tvEmail.setText(spannableEmail);
         holder.tvNowa.setText(spannableNowa);
+        holder.tvAlamat.setText(spannableAlamat);
     }
 
     @Override
@@ -75,7 +78,7 @@ public class AdapterDataUser extends RecyclerView.Adapter<AdapterDataUser.Holder
     }
 
     public class HolderData extends RecyclerView.ViewHolder {
-        TextView tvId, tvName, tvUsername, tvLevel, tvPassword, tvEmail, tvNowa;
+        TextView tvId, tvName, tvUsername, tvLevel, tvPassword, tvEmail, tvNowa,tvAlamat;
 
         public HolderData(@NonNull View itemView) {
             super(itemView);
@@ -87,6 +90,7 @@ public class AdapterDataUser extends RecyclerView.Adapter<AdapterDataUser.Holder
             tvPassword = itemView.findViewById(R.id.tv_password);
             tvEmail = itemView.findViewById(R.id.tv_email);
             tvNowa = itemView.findViewById(R.id.tv_nowa);
+            tvAlamat = itemView.findViewById(R.id.tv_alamat);
 
             itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -167,6 +171,7 @@ public class AdapterDataUser extends RecyclerView.Adapter<AdapterDataUser.Holder
                     String varPassword = listUser.get(0).getPassword();
                     String varEmail = listUser.get(0).getEmail();
                     String varNowa = listUser.get(0).getNowa();
+                    String varAlamat = listUser.get(0).getAlamat();
 
                     Intent kirim = new Intent(ctx, UserUbahActivity.class);
                     kirim.putExtra("xId", varIdUser);
@@ -176,6 +181,7 @@ public class AdapterDataUser extends RecyclerView.Adapter<AdapterDataUser.Holder
                     kirim.putExtra("xPassword", varPassword);
                     kirim.putExtra("xEmail", varEmail);
                     kirim.putExtra("xNowa", varNowa);
+                    kirim.putExtra("xAlamat", varAlamat);
                     ctx.startActivity(kirim);
                 }
 

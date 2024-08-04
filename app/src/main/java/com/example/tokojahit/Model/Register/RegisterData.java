@@ -20,6 +20,8 @@ public class RegisterData {
 
     @SerializedName("nowa")
     private String nowa;
+    @SerializedName("alamat")
+    private String alamat;
 
     public void setName(String name){
         this.name = name;
@@ -67,5 +69,13 @@ public class RegisterData {
 
     public String getNowa(){
         return nowa;
+    }
+
+    public void setAlamat(String alamat){
+        this.alamat = alamat;
+    }
+
+    public String getAlamat(){
+        return alamat;
     }
 }
