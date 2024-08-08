@@ -39,7 +39,7 @@ import retrofit2.Response;
 
 public class KainTambahActivity extends AppCompatActivity {
 
-    EditText edtName, edtPrice;
+    EditText edtName, edtPrice, edtWarna;
     Button btnGalery, btSubmit;
     ImageView imgHolder;
 
@@ -67,6 +67,7 @@ public class KainTambahActivity extends AppCompatActivity {
         // Identifikasi Komponen Form
         edtName = (EditText) findViewById(R.id.edt_name);
         edtPrice = (EditText) findViewById(R.id.edt_price);
+        edtWarna = (EditText) findViewById(R.id.edt_warna);
         imgHolder = (ImageView) findViewById(R.id.imgHolder);
         btnGalery = (Button) findViewById(R.id.btn_galery);
         btSubmit = (Button) findViewById(R.id.btn_submit);
@@ -132,7 +133,7 @@ public class KainTambahActivity extends AppCompatActivity {
             RequestBody reqBody = RequestBody.create(MediaType.parse("multipart/form-file"), imagefile);
             MultipartBody.Part partImage = MultipartBody.Part.createFormData("image", imagefile.getName(), reqBody);
 
-            Call<PostPutDelKain> postHerosCall = mApiInterface.postKain(partImage, RequestBody.create(MediaType.parse("text/plain"), edtName.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), edtPrice.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), date), RequestBody.create(MediaType.parse("text/plain"), INSERT_FLAG));
+            Call<PostPutDelKain> postHerosCall = mApiInterface.postKain(partImage, RequestBody.create(MediaType.parse("text/plain"), edtName.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), edtPrice.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), date), RequestBody.create(MediaType.parse("text/plain"),edtWarna.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), INSERT_FLAG));
             postHerosCall.enqueue(new Callback<PostPutDelKain>() {
                 @Override
                 public void onResponse(Call<PostPutDelKain> call, Response<PostPutDelKain> response) {

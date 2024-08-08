@@ -71,6 +71,20 @@
                 android:textColor="@color/text_color"
                 tools:text="Harga" />
 
+            <TextView
+                android:id="@+id/tv_item_warna"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_item_price"
+                android:layout_toEndOf="@id/img_item_photo"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="@color/text_color"
+                tools:text="Warna" />
+
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

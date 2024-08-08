@@ -71,6 +71,7 @@ public class AdapterDataPesanan extends RecyclerView.Adapter<AdapterDataPesanan.
                 mIntent.putExtra("LingkarPanggul2", mPesananList.get(position).getLingkarPanggul2());
                 mIntent.putExtra("LingkarRok", mPesananList.get(position).getLingkarRok());
                 mIntent.putExtra("Proses", mPesananList.get(position).getProses());
+                mIntent.putExtra("Warna", mPesananList.get(position).getWarna());
                 view.getContext().startActivity(mIntent);
             }
         });

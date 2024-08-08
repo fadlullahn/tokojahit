@@ -27,6 +27,7 @@ import com.example.tokojahit.Model.Pesanan.PostPutDelPesanan;
 
 import java.io.File;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -39,8 +40,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PesananTambahActivity extends AppCompatActivity {
-    TextView  tvPriceDesain, tvPriceKain,tvProses,tvNameBaju,tvPrice, tvNameKain, tvNameDesain,tvLingkarBadan, tvLingkarPinggang, tvPanjangDada, tvLebarDada, tvPanjangPunggung, tvLebarPunggung, tvLebarBahu, tvLingkarLeher, tvTinggiDada, tvJarakDada, tvLingkarPangkalLengan, tvPanjangLengan, tvLingkarSiku, tvLingkarPergelanganTangan, tvLingkarKerungLengan, tvLingkarPanggul1, tvLingkarPanggul2, tvLingkarRok;
-    EditText etLingkarBadan, etLingkarPinggang, etPanjangDada, etLebarDada, etPanjangPunggung, etLebarPunggung, etLebarBahu, etLingkarLeher, etTinggiDada, etJarakDada, etLingkarPangkalLengan, etPanjangLengan, etLingkarSiku, etLingkarPergelanganTangan, etLingkarKerungLengan, etLingkarPanggul1, etLingkarPanggul2, etLingkarRok, etProses;
+    TextView  tvPriceDesain, tvPriceKain,tvProses,tvNameBaju,tvPrice, tvNameKain, tvNameDesain,tvLingkarBadan, tvLingkarPinggang, tvPanjangDada, tvLebarDada, tvPanjangPunggung, tvLebarPunggung, tvLebarBahu, tvLingkarLeher, tvTinggiDada, tvJarakDada, tvLingkarPangkalLengan, tvPanjangLengan, tvLingkarSiku, tvLingkarPergelanganTangan, tvLingkarKerungLengan, tvLingkarPanggul1, tvLingkarPanggul2, tvLingkarRok,tvWarnaKain;
+    EditText etLingkarBadan, etLingkarPinggang, etPanjangDada, etLebarDada, etPanjangPunggung, etLebarPunggung, etLebarBahu, etLingkarLeher, etTinggiDada, etJarakDada, etLingkarPangkalLengan, etPanjangLengan, etLingkarSiku, etLingkarPergelanganTangan, etLingkarKerungLengan, etLingkarPanggul1, etLingkarPanggul2, etLingkarRok, etProses, etWarna;
     EditText edtName, edtPrice;
     Button btnGalery, btSubmit;
     ImageView imgHolder;
@@ -77,10 +78,8 @@ public class PesananTambahActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(this);
         String NameDesain = sharedPreferences2.getString("NameDesain", "");
         String PriceDesain = sharedPreferences2.getString("PriceDesain", "");
-
-
-
-
+        SharedPreferences sharedPreferences4 = PreferenceManager.getDefaultSharedPreferences(this);
+        String WarnaKain = sharedPreferences4.getString("Warna", "");
 // Mengonversi nilai dari String ke double
         double PriceKainValue = PriceKain.isEmpty() ? 0 : Double.parseDouble(PriceKain);
         double PriceDesainValue = PriceDesain.isEmpty() ? 0 : Double.parseDouble(PriceDesain);
@@ -88,21 +87,31 @@ public class PesananTambahActivity extends AppCompatActivity {
 // Menjumlahkan harga
         double TotalPrice = PriceKainValue + PriceDesainValue;
 
-// Format angka untuk menghilangkan nol di belakang desimal
-        DecimalFormat decimalFormat = new DecimalFormat("0.#");
+        // Format angka untuk menghilangkan nol di belakang desimal
+        DecimalFormat decimalFormat1 = new DecimalFormat("0.#");
+        String TotalPriceStrt = decimalFormat1.format(TotalPrice);
+
+
+// Format angka dengan pemisah ribuan dan menghilangkan nol di belakang desimal
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.getDefault());
+        DecimalFormat decimalFormat = (DecimalFormat) numberFormat;
+        decimalFormat.applyPattern("#,###.##");
         String TotalPriceStr = decimalFormat.format(TotalPrice);
 
-
+// Set TextView
         tvNameBaju = findViewById(R.id.tv_name_baju);
         tvNameBaju.setText(NameBaju);
         tvPrice = findViewById(R.id.tv_price);
-        tvPrice.setText(TotalPriceStr);
+        tvPrice.setText("Rp. " + TotalPriceStr);
 
 
         tvNameKain = findViewById(R.id.tv_name_kain);
         tvNameKain.setText(NameKain);
         tvPriceKain = findViewById(R.id.tv_price_kain);
         tvPriceKain.setText(PriceKain);
+        tvWarnaKain = findViewById(R.id.tv_warna_kain);
+        tvWarnaKain.setText(WarnaKain);
+
 
         tvNameDesain = findViewById(R.id.tv_name_desain);
         tvNameDesain.setText(NameDesain);
@@ -149,6 +158,7 @@ public class PesananTambahActivity extends AppCompatActivity {
         etLingkarPanggul2 = findViewById(R.id.et_lingkar_panggul_2);
         etLingkarRok = findViewById(R.id.et_lingkar_rok);
         etProses = findViewById(R.id.et_proses);
+        etWarna = findViewById(R.id.et_warna);
 
         // Ambil data dari SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences("UkuranPakaian", MODE_PRIVATE);
@@ -191,6 +201,8 @@ public class PesananTambahActivity extends AppCompatActivity {
         etLingkarPanggul2.setText(sharedPreferences.getString("LingkarPanggul2", "0"));
         etLingkarRok.setText(sharedPreferences.getString("LingkarRok", "0"));
         etProses.setText(sharedPreferences.getString("Proses", "0"));
+        etWarna.setText(sharedPreferences4.getString("Warna", "0"));
+
 //         Menyembunyikan TextView dari UI
         etLingkarBadan.setVisibility(View.GONE);
         etLingkarPinggang.setVisibility(View.GONE);
@@ -211,12 +223,13 @@ public class PesananTambahActivity extends AppCompatActivity {
         etLingkarPanggul2.setVisibility(View.GONE);
         etLingkarRok.setVisibility(View.GONE);
         etProses.setVisibility(View.GONE);
+        etWarna.setVisibility(View.GONE);
 
         // Identifikasi Komponen Form
         edtName = (EditText) findViewById(R.id.edt_name);
         edtName.setText(nameU);
         edtPrice = (EditText) findViewById(R.id.edt_price);
-        edtPrice.setText(TotalPriceStr);
+        edtPrice.setText(TotalPriceStrt);
         // Menyembunyikan TextView dari UI
         edtName.setVisibility(View.GONE);
         edtPrice.setVisibility(View.GONE);
@@ -315,7 +328,8 @@ public class PesananTambahActivity extends AppCompatActivity {
                     RequestBody.create(MediaType.parse("text/plain"), etLingkarPanggul1.getText().toString()),
                     RequestBody.create(MediaType.parse("text/plain"), etLingkarPanggul2.getText().toString()),
                     RequestBody.create(MediaType.parse("text/plain"), etLingkarRok.getText().toString()),
-                    RequestBody.create(MediaType.parse("text/plain"), etProses.getText().toString())
+                    RequestBody.create(MediaType.parse("text/plain"), etProses.getText().toString()),
+                    RequestBody.create(MediaType.parse("text/plain"), etWarna.getText().toString())
             );
 
             // Tambahkan logging pada response dari server

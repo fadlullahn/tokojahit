@@ -70,6 +70,22 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Warna Kain :"
+                android:paddingEnd="2dp"
+                android:gravity="start|center_vertical" />
+            <TextView
+                android:id="@+id/tv_warna_kain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -597,6 +613,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="proses"
+            android:inputType="textCapSentences" />
+
+        <EditText
+            android:id="@+id/et_warna"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="warna"
             android:inputType="textCapSentences" />
     </LinearLayout>
 </ScrollView>

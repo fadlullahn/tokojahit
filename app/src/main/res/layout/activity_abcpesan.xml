@@ -16,8 +16,24 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:hint="Silahkan Lengkapi Ukuran Pakaian"/>
+            android:hint="Silahkan Pilih Ukuran Pakaian"/>
 
+        <Spinner
+            android:id="@+id/spinner_ukuran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:entries="@array/ukuran_array"
+            android:spinnerMode="dropdown" />
+
+
+        <TextView
+            android:id="@+id/edt_warna_kain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Warna Kain"
+            android:maxLines="1" />
         <TextView
             android:id="@+id/edt_name_baju"
             android:layout_width="match_parent"
@@ -80,6 +96,8 @@
                 android:hint="Lingkar Badan"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -93,6 +111,8 @@
                 android:hint="Lingkar Pinggang"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -106,6 +126,8 @@
                 android:hint="Panjang Dada"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -119,6 +141,8 @@
             android:hint="Lebar Dada"
             android:textSize="15sp"
             android:inputType="number"
+            android:textStyle="bold"
+            android:enabled="false"
             />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -132,6 +156,8 @@
             android:hint="Panjang Punggung"
             android:textSize="15sp"
             android:inputType="number"
+            android:textStyle="bold"
+            android:enabled="false"
             />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -145,6 +171,8 @@
             android:hint="Lebar Punggung"
             android:textSize="15sp"
             android:inputType="number"
+            android:textStyle="bold"
+            android:enabled="false"
             />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -158,6 +186,8 @@
             android:hint="Lebar Bahu"
             android:textSize="15sp"
             android:inputType="number"
+            android:textStyle="bold"
+            android:enabled="false"
             />
          </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -171,6 +201,8 @@
             android:hint="Lingkar Leher"
             android:textSize="15sp"
             android:inputType="number"
+            android:textStyle="bold"
+            android:enabled="false"
             />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -184,6 +216,8 @@
             android:hint="Tinggi Dada"
             android:textSize="15sp"
             android:inputType="number"
+            android:textStyle="bold"
+            android:enabled="false"
             />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -197,6 +231,8 @@
             android:hint="Jarak Dada"
             android:textSize="15sp"
             android:inputType="number"
+            android:textStyle="bold"
+            android:enabled="false"
             />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -209,6 +245,7 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:hint="2) Bagian Lengan"
+
             android:maxLines="1" />
 
 
@@ -223,6 +260,8 @@
                 android:hint="Lingkar Pangkal Lengan"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -236,6 +275,8 @@
                 android:hint="Panjang Lengan"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -249,6 +290,8 @@
                 android:hint="Lingkar Siku"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -262,6 +305,8 @@
                 android:hint="Lingkar Pergelangan Tangan"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -275,6 +320,8 @@
                 android:hint="Lingkar Kerung Lengan"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -300,6 +347,8 @@
                 android:hint="Lingkar Panggul 1"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -313,6 +362,8 @@
                 android:hint="Lingkar Panggul 2"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -326,6 +377,8 @@
                 android:hint="Lingkar Rok"
                 android:textSize="15sp"
                 android:inputType="number"
+                android:textStyle="bold"
+                android:enabled="false"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 

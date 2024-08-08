@@ -78,9 +78,12 @@ public class Pesanan {
     @SerializedName("proses")
     private String proses;
 
+    @SerializedName("warna")
+    private String warna;
+
     public Pesanan(){}
 
-    public Pesanan(String id, String name, String price, String date, String image, String baju, String kain, String desain,String lingkarBadan, String lingkarPinggang,String panjangDada, String lebarDada, String panjangPunggung, String lebarPunggung, String lebarBahu, String lingkarLeher, String tinggiDada, String jarakDada, String lingkarPangkalLengan, String panjangLengan, String lingkarSiku, String lingkarPergelanganTangan, String lingkarKerungLengan, String lingkarPanggul1, String lingkarPanggul2, String lingkarRok, String proses) {
+    public Pesanan(String id, String name, String price, String date, String image, String baju, String kain, String desain,String lingkarBadan, String lingkarPinggang,String panjangDada, String lebarDada, String panjangPunggung, String lebarPunggung, String lebarBahu, String lingkarLeher, String tinggiDada, String jarakDada, String lingkarPangkalLengan, String panjangLengan, String lingkarSiku, String lingkarPergelanganTangan, String lingkarKerungLengan, String lingkarPanggul1, String lingkarPanggul2, String lingkarRok, String proses, String warna) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -108,6 +111,7 @@ public class Pesanan {
         this.lingkarPanggul2 = lingkarPanggul2;
         this.lingkarRok = lingkarRok;
         this.proses = proses;
+        this.warna = warna;
     }
 
     public String getId() {
@@ -235,6 +239,9 @@ public class Pesanan {
     }
     public String getProses() {
         return proses;
+    }
+    public String getWarna() {
+        return warna;
     }
 
 }

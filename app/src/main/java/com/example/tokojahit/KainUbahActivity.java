@@ -44,7 +44,7 @@ import retrofit2.Response;
 
 public class KainUbahActivity extends AppCompatActivity {
 
-    EditText edtName, edtPrice;
+    EditText edtName, edtPrice, edtWarna;
     ImageView imgHolder;
     String ID;
     Button btnGalery, btUpdate;
@@ -77,6 +77,7 @@ public class KainUbahActivity extends AppCompatActivity {
         // Identifikasi Komponen Form
         edtName = (EditText) findViewById(R.id.edt_name);
         edtPrice = (EditText) findViewById(R.id.edt_price);
+        edtWarna = (EditText) findViewById(R.id.edt_warna);
         imgHolder = (ImageView) findViewById(R.id.imgHolder);
         btnGalery = (Button) findViewById(R.id.btn_galery);
         btUpdate = (Button) findViewById(R.id.btn_submit);
@@ -86,6 +87,7 @@ public class KainUbahActivity extends AppCompatActivity {
         ID = mIntent.getStringExtra("Id");
         edtName.setText(mIntent.getStringExtra("NameKain"));
         edtPrice.setText(mIntent.getStringExtra("Price"));
+        edtWarna.setText(mIntent.getStringExtra("Warna"));
 
         // Masukan Gambar Ke Image View Gunakan Glide
         Glide.with(KainUbahActivity.this)
@@ -152,7 +154,7 @@ public class KainUbahActivity extends AppCompatActivity {
             RequestBody reqBody = RequestBody.create(MediaType.parse("multipart/form-file"), imagefile);
             MultipartBody.Part partImage = MultipartBody.Part.createFormData("image", imagefile.getName(), reqBody);
 
-            Call<PostPutDelKain> putHerosCall = mApiInterface.postUpdateKain(partImage, RequestBody.create(MediaType.parse("text/plain"), ID), RequestBody.create(MediaType.parse("text/plain"), edtName.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), edtPrice.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), date), RequestBody.create(MediaType.parse("text/plain"), UPDATE_FLAG));
+            Call<PostPutDelKain> putHerosCall = mApiInterface.postUpdateKain(partImage, RequestBody.create(MediaType.parse("text/plain"), ID), RequestBody.create(MediaType.parse("text/plain"), edtName.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), edtPrice.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), date), RequestBody.create(MediaType.parse("text/plain"),edtWarna.getText().toString()), RequestBody.create(MediaType.parse("text/plain"), UPDATE_FLAG));
             putHerosCall.enqueue(new Callback<PostPutDelKain>() {
                 @Override
                 public void onResponse(Call<PostPutDelKain> call, Response<PostPutDelKain> response) {

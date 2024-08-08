@@ -22,7 +22,9 @@ import com.example.tokojahit.Model.Desain.Desain;
 import com.example.tokojahit.ProUseActivity;
 import com.example.tokojahit.R;
 
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class AdapterDataDesain extends RecyclerView.Adapter<AdapterDataDesain.MyViewHolder> {
     List<Desain> mDesainList;
@@ -43,9 +45,22 @@ public class AdapterDataDesain extends RecyclerView.Adapter<AdapterDataDesain.My
         holder.mTextViewName.setText(mDesainList.get(position).getName());
         holder.mTextViewDate.setText(mDesainList.get(position).getDate());
 
-        SpannableString spannablemTextViewPrice = new SpannableString("Rp." + mDesainList.get(position).getPrice());
+//        SpannableString spannablemTextViewPrice = new SpannableString("Rp." + mDesainList.get(position).getPrice());
+//
+//        holder.mTextViewPrice.setText(spannablemTextViewPrice);
 
-        holder.mTextViewPrice.setText(spannablemTextViewPrice);
+        String priceString = mDesainList.get(position).getPrice(); // Misalnya "10000"
+
+// Konversi string ke double
+        double price = Double.parseDouble(priceString);
+
+// Format harga dengan pemisah ribuan
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.getDefault());
+        String formattedPrice = numberFormat.format(price);
+
+// Buat SpannableString untuk menampilkan harga
+        SpannableString spannableTextViewPrice = new SpannableString("Rp. " + formattedPrice);
+        holder.mTextViewPrice.setText(spannableTextViewPrice);
 
         Glide.with(holder.itemView.getContext())
                 .load(Config.IMAGES_URL + mDesainList.get(position).getImage())

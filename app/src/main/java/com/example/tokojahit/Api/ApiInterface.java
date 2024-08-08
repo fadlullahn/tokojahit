@@ -95,6 +95,7 @@ public interface ApiInterface {
                                      @Part("name") RequestBody name,
                                      @Part("price") RequestBody price,
                                      @Part("date") RequestBody date,
+                                     @Part("warna") RequestBody warna,
                                      @Part("flag") RequestBody flag);
 
     @Multipart
@@ -104,6 +105,7 @@ public interface ApiInterface {
                                            @Part("name") RequestBody name,
                                            @Part("price") RequestBody price,
                                            @Part("date") RequestBody date,
+                                           @Part("warna") RequestBody warna,
                                            @Part("flag") RequestBody flag);
 
     @FormUrlEncoded
@@ -207,7 +209,8 @@ public interface ApiInterface {
             @Part("lingkar_panggul_1") RequestBody lingkar_panggul_1,
             @Part("lingkar_panggul_2") RequestBody lingkar_panggul_2,
             @Part("lingkar_rok") RequestBody lingkar_rok,
-            @Part("proses") RequestBody proses
+            @Part("proses") RequestBody proses,
+            @Part("warna") RequestBody warna
     );
 
     @Multipart

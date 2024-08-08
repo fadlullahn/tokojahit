@@ -11,16 +11,19 @@ public class Kain {
     private String price;
     @SerializedName("date")
     private String date;
+    @SerializedName("warna")
+    private String warna;
     @SerializedName("image")
     private String image;
 
     public Kain(){}
 
-    public Kain(String id, String name, String price, String date, String image) {
+    public Kain(String id, String name, String price, String date, String image, String warna) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.date = date;
+        this.warna = warna;
         this.image = image;
     }
 
@@ -62,5 +65,12 @@ public class Kain {
 
     public void setImage(String image) {
         this.image = image;
+    }
+    public String getWarna() {
+        return warna;
+    }
+
+    public void setWarna(String warna) {
+        this.warna = warna;
     }
 }

@@ -22,6 +22,7 @@ import com.example.tokojahit.Api.ApiClient;
 import com.example.tokojahit.Api.ApiInterface;
 import com.example.tokojahit.Model.Pesanan.PostPutDelPesanan;
 
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -34,7 +35,7 @@ import retrofit2.Response;
 
 public class PesananUbahActivity extends AppCompatActivity {
     EditText etProses;
-    TextView tvName, tvPrice, tvBaju, tvKain, tvDesain,tvLingkarBadan, tvLingkarPinggang, tvPanjangDada, tvLebarDada, tvPanjangPunggung, tvLebarPunggung, tvLebarBahu, tvLingkarLeher, tvTinggiDada, tvJarakDada, tvLingkarPangkalLengan, tvPanjangLengan, tvLingkarSiku, tvLingkarPergelanganTangan, tvLingkarKerungLengan, tvLingkarPanggul1, tvLingkarPanggul2, tvLingkarRok;
+    TextView tvName, tvPrice, tvBaju, tvKain, tvDesain,tvLingkarBadan, tvLingkarPinggang, tvPanjangDada, tvLebarDada, tvPanjangPunggung, tvLebarPunggung, tvLebarBahu, tvLingkarLeher, tvTinggiDada, tvJarakDada, tvLingkarPangkalLengan, tvPanjangLengan, tvLingkarSiku, tvLingkarPergelanganTangan, tvLingkarKerungLengan, tvLingkarPanggul1, tvLingkarPanggul2, tvLingkarRok,tvWarna, tvUkuran;
     ImageView imgHolder;
     String ID;
     Button btUpdate;
@@ -55,6 +56,9 @@ public class PesananUbahActivity extends AppCompatActivity {
         tvKain = (TextView) findViewById(R.id.tv_kain);
         tvDesain = (TextView) findViewById(R.id.tv_desain);
         imgHolder = (ImageView) findViewById(R.id.imgHolder);
+        tvWarna = (TextView) findViewById(R.id.tv_warna);
+        tvUkuran = (TextView) findViewById(R.id.tv_ukuran_pakaian);
+
         btUpdate = (Button) findViewById(R.id.btn_submit);
 
         etProses = (EditText) findViewById(R.id.et_proses);
@@ -68,6 +72,20 @@ public class PesananUbahActivity extends AppCompatActivity {
         tvBaju.setText(mIntent.getStringExtra("Baju"));
         tvKain.setText(mIntent.getStringExtra("Kain"));
         tvDesain.setText(mIntent.getStringExtra("Desain"));
+
+        // Ambil harga dari Intent
+        String priceFromIntent = mIntent.getStringExtra("Price");
+
+// Konversi harga dari String ke double
+        double priceValue = priceFromIntent.isEmpty() ? 0 : Double.parseDouble(priceFromIntent);
+
+// Format angka dengan pemisah ribuan
+        NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.getDefault());
+        String formattedPrice = numberFormat.format(priceValue);
+
+// Set TextView
+        tvPrice.setText("Rp. " + formattedPrice);
+
 
         // Identifikasi TextView Ukuran Pakaian
         tvLingkarBadan = findViewById(R.id.tv_lingkar_badan);
@@ -108,6 +126,7 @@ public class PesananUbahActivity extends AppCompatActivity {
         tvLingkarPanggul1.setText(mIntent.getStringExtra("LingkarPanggul1"));
         tvLingkarPanggul2.setText(mIntent.getStringExtra("LingkarPanggul2"));
         tvLingkarRok.setText(mIntent.getStringExtra("LingkarRok"));
+        tvWarna.setText(mIntent.getStringExtra("Warna"));
 
         // Masukan Gambar Ke Image View Gunakan Glide
         Glide.with(PesananUbahActivity.this)
@@ -119,17 +138,73 @@ public class PesananUbahActivity extends AppCompatActivity {
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         // Fungsi Tombol Update
+//        btUpdate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                updateUpload();
+//
+//                Intent intent = new Intent(PesananUbahActivity.this, PesananDataActivity.class);
+//                intent.putExtra("pesan", "Pesanan Telah Dikonfirmasi");
+//                startActivity(intent);
+//            }
+//        });
+
+        // Di dalam metode btUpdate.setOnClickListener
         btUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                updateUpload();
-
-                Intent intent = new Intent(PesananUbahActivity.this, PesananDataActivity.class);
-                intent.putExtra("pesan", "Pesanan Telah Dikonfirmasi");
-                startActivity(intent);
+                showStatusDialog();
             }
         });
 
+        String lingkarBadanValue = tvLingkarBadan.getText().toString();
+
+        if (lingkarBadanValue.equals("88")) {
+            tvUkuran.setText("S");
+        } else if (lingkarBadanValue.equals("90")) {
+            tvUkuran.setText("M");
+        } else if (lingkarBadanValue.equals("94")) {
+            tvUkuran.setText("L");
+        } else if (lingkarBadanValue.equals("100")) {
+            tvUkuran.setText("XL");
+        } else if (lingkarBadanValue.equals("101")) {
+            tvUkuran.setText("XXL");
+        } else {
+            tvUkuran.setText("Ukuran Tidak Diketahui"); // Default case
+        }
+
+
+    }
+
+    private void showStatusDialog() {
+        final String[] statuses = {
+                "Konfirmasi Pesanan",
+                "Pesanan Sedang Diproses",
+                "Pesanan Selesai Dibuat",
+                "Pesanan Sedang Dikirim",
+                "Pesanan Sudah Diterima oleh Tujuan"
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(PesananUbahActivity.this);
+        builder.setTitle("Pilih Status Pesanan")
+                .setItems(statuses, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Set nilai ke etProses berdasarkan pilihan
+                        etProses.setText(statuses[which]);
+
+                        // Lakukan updateUpload setelah status dipilih
+                        updateUpload();
+
+                        // Pindah ke activity berikutnya
+                        Intent intent = new Intent(PesananUbahActivity.this, PesananDataActivity.class);
+                        intent.putExtra("pesan", "Pesanan Telah Dikonfirmasi");
+                        startActivity(intent);
+                    }
+                });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     private void updateUpload() {

@@ -28,7 +28,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ABPesan extends AppCompatActivity {
-    TextView edtNameKain, edtPriceKain;
+    TextView edtNameKain, edtPriceKain, edtWarnaKain;
     String ID;
     ApiInterface mApiInterface;
     SessionManager sessionManager;
@@ -47,6 +47,7 @@ public class ABPesan extends AppCompatActivity {
         // Identifikasi Komponen Form
         edtNameKain = (TextView) findViewById(R.id.edt_name_kain);
         edtPriceKain = (TextView) findViewById(R.id.edt_price_kain);
+        edtWarnaKain = (TextView) findViewById(R.id.edt_warna_kain);
 
 
         // Identifikasi intent ke Komponen Form
@@ -54,6 +55,7 @@ public class ABPesan extends AppCompatActivity {
         ID = mIntent.getStringExtra("Id");
         edtNameKain.setText(mIntent.getStringExtra("NameKain"));
         edtPriceKain.setText(mIntent.getStringExtra("PriceKain"));
+        edtWarnaKain.setText(mIntent.getStringExtra("Warna"));
 
 
         // Definisi API
@@ -74,6 +76,7 @@ public class ABPesan extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences1.edit();
         editor.putString("NameKain", edtNameKain.getText().toString());
         editor.putString("PriceKain", edtPriceKain.getText().toString());
+        editor.putString("Warna", edtWarnaKain.getText().toString());
         editor.apply();
 
 
@@ -91,10 +94,11 @@ public class ABPesan extends AppCompatActivity {
         textView1.setText(Price);
 
         // Menyembunyikan TextView dari UI
-//        textView.setVisibility(View.GONE);
-//        textView1.setVisibility(View.GONE);
-//        edtNameKain.setVisibility(View.GONE);
-//        edtPriceKain.setVisibility(View.GONE);
+        textView.setVisibility(View.GONE);
+        textView1.setVisibility(View.GONE);
+        edtNameKain.setVisibility(View.GONE);
+        edtPriceKain.setVisibility(View.GONE);
+        edtWarnaKain.setVisibility(View.GONE);
     }
 
     public void refresh() {

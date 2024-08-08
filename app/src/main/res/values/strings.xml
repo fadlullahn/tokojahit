@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TokoJahit</string>
+    <string-array name="ukuran_array">
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
+        <item>XL</item>
+        <item>XXL</item>
+    </string-array>
+
 </resources>

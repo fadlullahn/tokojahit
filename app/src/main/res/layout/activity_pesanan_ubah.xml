@@ -93,6 +93,22 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Warna Kain :"
+                android:paddingEnd="2dp"
+                android:gravity="start|center_vertical" />
+            <TextView
+                android:id="@+id/tv_warna"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Desain Pakaian :"
                 android:paddingEnd="2dp"
                 android:gravity="start|center_vertical" />
@@ -102,14 +118,25 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:textSize="15dp"
+            android:text="Ukuran Pakaian:"
             android:textStyle="bold"
-            android:hint="Ukuran Pakaian"/>
+            android:textSize="18dp"
+            android:paddingEnd="2dp"
+            android:gravity="start|center_vertical" />
+        <TextView
+            android:id="@+id/tv_ukuran_pakaian"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -17,6 +17,14 @@
             android:textSize="20dp"
             android:textStyle="bold"
             android:hint="Silahkan Piih Desain"/>
+
+        <TextView
+            android:id="@+id/edt_warna_kain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Warna Kain"
+            android:inputType="textCapSentences"
+            android:maxLines="1" />
             <TextView
                 android:id="@+id/edt_name_baju"
                 android:layout_width="match_parent"
