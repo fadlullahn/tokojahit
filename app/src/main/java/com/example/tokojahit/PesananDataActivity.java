@@ -25,6 +25,7 @@ import com.example.tokojahit.Model.Pesanan.GetPesanan;
 import com.example.tokojahit.Model.Pesanan.Pesanan;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -72,16 +73,36 @@ public class PesananDataActivity extends AppCompatActivity {
     }
 
     public void refresh() {
-        Call<GetPesanan> Call = mApiInterface.getPesanan();
-        Call.enqueue(new Callback<GetPesanan>() {
+        // Ambil username dan peran dari SessionManager
+        String username = sessionManager.getUserDetail().get(SessionManager.USERNAME);
+        String role = sessionManager.getUserDetail().get(SessionManager.LEVEL); // Misalkan role adalah kunci di SessionManager
+
+        Call<GetPesanan> call = mApiInterface.getPesanan();
+        call.enqueue(new Callback<GetPesanan>() {
             @Override
-            public void onResponse(Call<GetPesanan> call, Response<GetPesanan>
-                    response) {
-                List<Pesanan> PesananList = response.body().getListDataPesanan();
-                Log.d("Retrofit Get", "Jumlah data Heros: " +
-                        String.valueOf(PesananList.size()));
-                mAdapter = new AdapterDataPesanan(PesananList);
-                mRecyclerView.setAdapter(mAdapter);
+            public void onResponse(Call<GetPesanan> call, Response<GetPesanan> response) {
+                if (response.isSuccessful()) {
+                    List<Pesanan> pesananList = response.body().getListDataPesanan();
+
+                    // Filter data jika pengguna adalah user
+                    List<Pesanan> filteredList = new ArrayList<>();
+                    if ("user".equalsIgnoreCase(role)) {
+                        for (Pesanan pesanan : pesananList) {
+                            if (pesanan.getName() != null && pesanan.getName().equalsIgnoreCase(username)) {
+                                filteredList.add(pesanan);
+                            }
+                        }
+                    } else {
+                        // Tampilkan semua data jika pengguna bukan user
+                        filteredList = pesananList;
+                    }
+
+                    Log.d("Retrofit Get", "Jumlah data Pesanan setelah filter: " + filteredList.size());
+                    mAdapter = new AdapterDataPesanan(filteredList);
+                    mRecyclerView.setAdapter(mAdapter);
+                } else {
+                    Log.e("Retrofit Get", "Response error: " + response.message());
+                }
             }
 
             @Override
@@ -90,6 +111,8 @@ public class PesananDataActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     private void moveToLogin() {
         Intent intent = new Intent(PesananDataActivity.this, LoginActivity.class);

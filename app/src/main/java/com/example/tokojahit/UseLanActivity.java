@@ -19,7 +19,7 @@ import com.example.tokojahit.Adapter.SessionManager;
 
 public class UseLanActivity extends AppCompatActivity {
 
-    private Button button1 ,button2, button3;
+    private Button button1 ,button2, button3, button4;
     SessionManager sessionManager;
     String level;
 
@@ -32,6 +32,7 @@ public class UseLanActivity extends AppCompatActivity {
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
+        button4 = findViewById(R.id.button4);
 
         level = sessionManager.getUserDetail().get(SessionManager.LEVEL);
 
@@ -53,6 +54,13 @@ public class UseLanActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(UseLanActivity.this, BajuDataActivity.class));
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(UseLanActivity.this, PesananDataActivity.class));
             }
         });
     }

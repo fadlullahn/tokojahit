@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.tokojahit.Adapter.SessionManager;
 import com.example.tokojahit.Api.ApiClient;
 import com.example.tokojahit.Api.ApiInterface;
 import com.example.tokojahit.Model.Pesanan.PostPutDelPesanan;
@@ -43,11 +44,14 @@ public class PesananUbahActivity extends AppCompatActivity {
     private final int ALERT_DIALOG_CLOSE = Config.ALERT_DIALOG_CLOSE;
     private final int ALERT_DIALOG_DELETE = Config.ALERT_DIALOG_DELETE;
     private static final String UPDATE_FLAG = Config.UPDATE_FLAG;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesanan_ubah);
+
+        sessionManager = new SessionManager(PesananUbahActivity.this);
 
         // Identifikasi Komponen Form
         tvName = (TextView) findViewById(R.id.tv_name);
@@ -126,6 +130,7 @@ public class PesananUbahActivity extends AppCompatActivity {
         tvLingkarPanggul1.setText(mIntent.getStringExtra("LingkarPanggul1"));
         tvLingkarPanggul2.setText(mIntent.getStringExtra("LingkarPanggul2"));
         tvLingkarRok.setText(mIntent.getStringExtra("LingkarRok"));
+        etProses.setText(mIntent.getStringExtra("Proses"));
         tvWarna.setText(mIntent.getStringExtra("Warna"));
 
         // Masukan Gambar Ke Image View Gunakan Glide
@@ -148,7 +153,7 @@ public class PesananUbahActivity extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
-
+        updateButtonVisibility();
         // Di dalam metode btUpdate.setOnClickListener
         btUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,15 +180,48 @@ public class PesananUbahActivity extends AppCompatActivity {
 
 
     }
+    public void updateButtonVisibility() {
+        String role = sessionManager.getUserDetail().get(SessionManager.LEVEL);
+        String prosesStatus = etProses.getText().toString(); // Mendapatkan nilai dari etProses
+
+        if ("Pesanan Sedang Dikirim".equalsIgnoreCase(prosesStatus)) {
+            // Sembunyikan tombol untuk admin dan tampilkan untuk user
+            if ("admin".equalsIgnoreCase(role)) {
+                btUpdate.setVisibility(View.GONE);
+            } else if ("user".equalsIgnoreCase(role)) {
+                btUpdate.setVisibility(View.VISIBLE);
+            }
+        } else {
+            // Tampilkan tombol untuk admin dan sembunyikan untuk user
+            if ("admin".equalsIgnoreCase(role)) {
+                btUpdate.setVisibility(View.VISIBLE);
+            } else if ("user".equalsIgnoreCase(role)) {
+                btUpdate.setVisibility(View.GONE);
+            }
+        }
+    }
 
     private void showStatusDialog() {
-        final String[] statuses = {
-                "Konfirmasi Pesanan",
-                "Pesanan Sedang Diproses",
-                "Pesanan Selesai Dibuat",
-                "Pesanan Sedang Dikirim",
-                "Pesanan Sudah Diterima oleh Tujuan"
-        };
+        // Ambil peran pengguna dari SessionManager
+        String level1 = sessionManager.getUserDetail().get(SessionManager.LEVEL); // Mendapatkan peran pengguna
+
+        // Tentukan array status berdasarkan peran pengguna
+        final String[] statuses;
+        if ("admin".equalsIgnoreCase(level1)) {
+            statuses = new String[]{
+                    "Konfirmasi Pesanan",
+                    "Pesanan Sedang Diproses",
+                    "Pesanan Selesai Dibuat",
+                    "Pesanan Sedang Dikirim"
+            };
+        } else if ("user".equalsIgnoreCase(level1)) {
+            statuses = new String[]{
+                    "Pesanan Sudah Diterima oleh Tujuan"
+            };
+        } else {
+            // Default status jika peran tidak dikenali
+            statuses = new String[]{};
+        }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(PesananUbahActivity.this);
         builder.setTitle("Pilih Status Pesanan")
@@ -206,6 +244,7 @@ public class PesananUbahActivity extends AppCompatActivity {
         AlertDialog dialog = builder.create();
         dialog.show();
     }
+
 
     private void updateUpload() {
         final String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
